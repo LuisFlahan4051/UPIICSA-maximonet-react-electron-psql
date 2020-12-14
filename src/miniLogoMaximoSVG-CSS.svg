@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1568" height="1300.75" viewBox="0 0 1568 1300.75">
+  <defs>
+    <style>
+      .cls-1, .cls-11 {
+        fill: #ff26a5;
+      }
+
+      .cls-2, .cls-6 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        font-size: 1000px;
+      }
+
+      .cls-11, .cls-2 {
+        font-family: FreestyleScript-Regular, Freestyle Script;
+      }
+
+      .cls-3 {
+        fill: #00fff0;
+      }
+
+      .cls-4 {
+        fill: #474747;
+      }
+
+      .cls-5 {
+        fill: #9b9b9b;
+      }
+
+      .cls-7 {
+        fill: #363636;
+      }
+
+      .cls-8 {
+        fill: #01af01;
+      }
+
+      .cls-9 {
+        fill: lime;
+      }
+
+      .cls-10 {
+        fill: #fe0;
+      }
+
+      .cls-11 {
+        font-size: 87px;
+      }
+
+      .cls-12 {
+        filter: url(#Elipse_3);
+      }
+
+      .cls-13 {
+        filter: url(#Elipse_1);
+      }
+    </style>
+    <filter id="Elipse_1" x="0" y="0" width="1280" height="1280" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="30" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Elipse_3" x="788" y="439" width="780" height="780" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="30" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="miniLogoMaximo" transform="translate(-58 1438)">
+    <g id="CabezaGato" transform="translate(118 -1348)">
+      <g class="cls-13" transform="matrix(1, 0, 0, 1, -60, -90)">
+        <circle id="Elipse_1-2" data-name="Elipse 1" class="cls-1" cx="550" cy="550" r="550" transform="translate(90 90)"/>
+      </g>
+      <text id="M" class="cls-2" transform="translate(266.25 883.75)"><tspan x="0" y="0">M</tspan></text>
+    </g>
+    <g id="impresora" transform="translate(-3440 -1432)">
+      <g class="cls-12" transform="matrix(1, 0, 0, 1, 3498, -6)">
+        <circle id="Elipse_3-2" data-name="Elipse 3" class="cls-3" cx="300" cy="300" r="300" transform="translate(878 529)"/>
+      </g>
+      <rect id="Rectángulo_3" data-name="Rectángulo 3" class="cls-4" width="300" height="160" rx="25" transform="translate(4526 760)"/>
+      <path id="Unión_1" data-name="Unión 1" class="cls-5" d="M25,86A25,25,0,0,1,.02,62H0V0H200V62h-.02A25,25,0,0,1,175,86Z" transform="translate(4576 760)"/>
+      <rect id="Rectángulo_6" data-name="Rectángulo 6" class="cls-6" width="150" height="90" transform="translate(4601 670)"/>
+      <circle id="Elipse_4" data-name="Elipse 4" class="cls-1" cx="6.5" cy="6.5" r="6.5" transform="translate(4794 777)"/>
+      <circle id="Elipse_5" data-name="Elipse 5" class="cls-3" cx="6.5" cy="6.5" r="6.5" transform="translate(4794 792)"/>
+      <rect id="Rectángulo_8" data-name="Rectángulo 8" class="cls-7" width="173" height="21" rx="10.5" transform="translate(4590 899)"/>
+      <g id="impresion">
+        <rect id="Rectángulo_7" data-name="Rectángulo 7" class="cls-6" width="150" height="70" transform="translate(4601 907)"/>
+        <rect id="Rectángulo_9" data-name="Rectángulo 9" class="cls-3" width="130" height="63" transform="translate(4611 907)"/>
+        <path id="Trazado_6" data-name="Trazado 6" class="cls-8" d="M4740.518,970c-13.649-6.505-36.536-8.109-51.364-14.067-9.471-3.806-19.488-11.149-28.293-15.54-7.482-3.731-14.689-8.964-19.8-9.023-11.958-.137-12.241,2.172-18.3,6.517C4609.688,947.263,4611,970,4611,970h129.518Z" transform="translate(0)"/>
+        <path id="Trazado_5" data-name="Trazado 5" class="cls-9" d="M4611,970c13.649-6.505,36.536-8.109,51.364-14.067,18.074-7.263,27.61-18.173,38.348-18.3,11.958-.137,15.75,6.182,21.806,10.527a54.808,54.808,0,0,1,18,21.838H4611Z"/>
+        <circle id="Elipse_6" data-name="Elipse 6" class="cls-10" cx="10" cy="10" r="10" transform="translate(4718 908)"/>
+        <path id="Trazado_7" data-name="Trazado 7" class="cls-6" d="M4675.126,923.093c-3.036-.791-6.541.159-8.035-.872-4.047-2.764,2.019-7.459,2.019-7.459s-.438-3.566,1.4-5.265c1.814-1.684,6.34-1.414,10.355.79,1.554.853,6.323-3.262,7.9-2.72,1.492.439.581-.009,1.4.439,2.885,1.549,2.282,5.09,2.282,5.09s5.9-.376,3.422,4.476c-.141.281-2.455.59-2.808,1.492-.364.936,1.061,2.8,0,4.031-1.237,1.439-3.638.221-5.792.532-1.755.257-3.278,1.993-4.827,2.808-5.266,2.779-7.322-3.34-7.322-3.34" transform="translate(-7 4)"/>
+      </g>
+      <text id="K" class="cls-11" transform="translate(4652 826)"><tspan x="0" y="0">K</tspan></text>
+    </g>
+  </g>
+</svg>

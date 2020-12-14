@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="462" height="311" viewBox="0 0 462 311">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #ff26a5;
+      }
+
+      .cls-1 {
+        font-size: 68px;
+      }
+
+      .cls-1, .cls-3 {
+        font-family: SegoeUI, Segoe UI;
+      }
+
+      .cls-2 {
+        font-size: 28px;
+        font-family: SegoeUI-Bold, Segoe UI;
+        font-weight: 700;
+      }
+
+      .cls-3 {
+        fill: #777;
+        font-weight: 400;
+      }
+    </style>
+  </defs>
+  <g id="Banner" transform="translate(-129)">
+    <text id="_BD_2CM41" data-name=" BD 2CM41" class="cls-1" transform="translate(192 73)"><tspan x="0" y="0" xml:space="preserve"> BD 2CM41</tspan></text>
+    <text id="Equipo:_Gómez_Reynoso_Carolina._Gómez_Torres_Jovany._Lara_Reyes_Ana_Karen._Melendez_Bustamante_Luis_Fernando._Matías_Cartagena_Heber." data-name="Equipo:
+Gómez Reynoso Carolina.
+Gómez Torres Jovany.
+Lara Reyes Ana Karen.
+Melendez Bustamante Luis Fernando.
+Matías Cartagena Heber." class="cls-2" transform="translate(360 119)"><tspan x="-49.602" y="0">Equipo:</tspan><tspan class="cls-3"><tspan x="-157.24" y="37">Gómez Reynoso Carolina.</tspan><tspan x="-133.116" y="74">Gómez Torres Jovany.</tspan><tspan x="-134.996" y="111">Lara Reyes Ana Karen.</tspan><tspan x="-230.173" y="148">Melendez Bustamante Luis Fernando.</tspan><tspan x="-152.414" y="185">Matías Cartagena Heber.</tspan></tspan></text>
+  </g>
+</svg>

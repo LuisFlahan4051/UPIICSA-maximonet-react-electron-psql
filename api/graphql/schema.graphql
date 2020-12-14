@@ -1,0 +1,408 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type Usuario {
+  id: ID!
+  nombre: String
+  mail: String
+  nick: String!
+  pass: String!
+  admin: Boolean
+  root: Boolean
+  sucursal: ID
+}
+
+type Producto {
+  id: ID!
+  nombre: String!
+  descripcion: String
+  precio: Float
+  stock: Int
+  sucursal: ID
+  numeroCaja: Int
+}
+
+type Observacion{
+  id: ID
+  descripcion: String
+  egreso: Float
+  numeroCaja: Int!
+}
+
+type Caja {
+  id: ID
+  monedas50centavos: Float
+  monedas1Peso: Float
+  monedas2Pesos: Float
+  monedas5Pesos: Float
+  monedas10Pesos: Float
+  monedas20Pesos: Float
+  billetes20: Float
+  billetes50: Float
+  billetes100: Float
+  billetes200: Float
+  billetes500: Float
+  billetes1000: Float
+  numeroCaja: Int!
+}
+
+type ContadorCopia {
+  id: ID
+  papel: Int
+  copiasBN: Int
+  copiasColor: Int
+  impresionesBN: Int
+  impresionesColor: Int
+  sucursal: ID
+  numeroCaja: Int
+}
+
+type Articulo {
+  id: ID!
+  nombre: String!
+  descripcion: String
+  stok: Int
+  tipo: String
+  sucursal: ID
+  numeroCaja: Int
+}
+
+type Responsiva{
+  id: ID!
+  numeroCaja: Int!
+  fechaEntrada: String!
+  fechaSalida: String
+  verificacionArticulos: Boolean
+  reporteFaltante: Boolean
+  usuarioEncargado: Usuario!
+  usuarioReceptor: Usuario
+  productos: [Producto]
+  productosVendidos: [Producto]
+  articulosActuales: [Articulo]
+  articulosEntregados: [Articulo]
+  copiasActuales: ContadorCopia
+  copiasEntregadas: ContadorCopia
+  observaciones: [Observacion]
+  caja: Caja
+  sucursal: ID!
+}
+
+type Sucursal {
+  id: ID!
+  nombre: String!
+  direccion: String
+  productos: [Producto]
+  usuarios: [Usuario]
+  responsivas: [Responsiva]
+  articulos: [Articulo]
+  contadorCopia: ContadorCopia
+}
+
+
+
+
+
+
+
+
+
+input AgregarSucursal {
+  id: ID!
+  nombre: String!
+  direccion: String
+}
+
+input EliminarSucursal{
+  id: ID!
+}
+
+input ActualizarSucursal{
+  id: ID!
+  nombre: String!
+  direccion: String
+}
+
+input AgregarResponsiva{
+  id: ID!
+  numeroCaja: Int!
+  fechaEntrada: String!
+  fechaSalida: String
+  verificacionArticulos: Boolean
+  reporteFaltante: Boolean
+  sucursal: ID!
+}
+
+input EliminarResponsivaById {
+  id: ID!
+}
+
+input ActualizarResponsiva {
+  id: ID!
+  numeroCaja: Int!
+  fechaEntrada: String
+  fechaSalida: String
+  verificacionArticulos: Boolean
+  reporteFaltante: Boolean
+  sucursal: ID
+}
+
+input ActualizarUsuario {
+  id: ID!
+  nombre: String
+  mail: String
+  nick: String
+  pass: String!
+  admin: Boolean
+  root: Boolean
+}
+
+input AgregarUsuario {
+  id: ID!
+  nombre: String
+  mail: String
+  nick: String!
+  pass: String!
+  admin: Boolean
+  root: Boolean
+}
+
+input EliminarUsuario{
+  id: ID!
+}
+
+input AgregarProducto{
+  id: ID!
+  nombre: String!
+  descripcion: String
+  precio: Float
+  stock: Int
+  sucursal: ID
+  numeroCaja: Int
+}
+
+input EliminarProducto{
+  id: ID!
+}
+
+input ActualizarProducto{
+  id: ID!
+  nombre: String
+  descripcion: String
+  precio: Float
+  stock: Int
+  sucursal: ID
+  numeroCaja: Int
+}
+
+input AgregarArticulo {
+  id: ID!
+  nombre: String!
+  descripcion: String
+  stok: Int
+  tipo: String
+  sucursal: ID
+  numeroCaja: Int
+}
+
+input EliminarArticulo {
+  id: ID!
+}
+
+input ActualizarArticulo{
+  id: ID!
+  nombre: String
+  descripcion: String
+  stok: Int
+  tipo: String
+  sucursal: ID
+  numeroCaja: Int
+}
+
+input AgregarContadorCopia {
+  id: ID!
+  papel: Int
+  copiasBN: Int
+  copiasColor: Int
+  impresionesBN: Int
+  impresionesColor: Int
+  sucursal: ID
+  numeroCaja: Int
+}
+
+input EliminarContadorCopiaById {
+  id: ID!
+}
+
+input ActualizarContadorCopia {
+  id: ID!
+  papel: Int
+  copiasBN: Int
+  copiasColor: Int
+  impresionesBN: Int
+  impresionesColor: Int
+  sucursal: ID
+  numeroCaja: Int
+}
+
+input AgregarObservacion {
+  id: ID!
+  descripcion: String
+  egreso: Float
+  numeroCaja: Int!
+}
+
+input EliminarObservacionByID {
+  id: ID!
+}
+
+input ActualizarObservacion {
+  id: ID!
+  descripcion: String
+  egreso: Float
+  numeroCaja: Int!
+}
+
+input AgregarCaja {
+  id: ID!
+  monedas50centavos: Float
+  monedas1Peso: Float
+  monedas2Pesos: Float
+  monedas5Pesos: Float
+  monedas10Pesos: Float
+  monedas20Pesos: Float
+  billetes20: Float
+  billetes50: Float
+  billetes100: Float
+  billetes200: Float
+  billetes500: Float
+  billetes1000: Float
+  numeroCaja: Int!
+}
+
+input EliminarCajaById{
+  id: ID!
+  numeroCaja: Int
+}
+
+input ActualizarCaja{
+  id: ID!
+  monedas50centavos: Float
+  monedas1Peso: Float
+  monedas2Pesos: Float
+  monedas5Pesos: Float
+  monedas10Pesos: Float
+  monedas20Pesos: Float
+  billetes20: Float
+  billetes50: Float
+  billetes100: Float
+  billetes200: Float
+  billetes500: Float
+  billetes1000: Float
+  numeroCaja: Int!
+}
+
+
+
+
+
+
+
+
+
+
+
+type Query {
+  usuarios(
+    id: ID
+  ): [Usuario]
+  productos(
+    sucursal: ID 
+  ): [Producto]
+  sucursales: [Sucursal]
+  articulos(
+    sucursal: ID,
+    numeroCaja: Int
+  ): [Articulo]
+  responsivas(
+    sucursal: ID,
+    numeroCaja: Int  
+  ): [Responsiva]
+  copias(
+    sucursal: ID,
+    numeroCaja: Int 
+  ): [ContadorCopia]
+  observaciones(
+    sucursal: ID,
+    numeroCaja: ID,
+  ): [Observacion]
+}
+
+
+
+
+type Mutation {
+  crearUsuario(input: AgregarUsuario!): Usuario
+  eliminarUsuarioById(input: EliminarUsuario!): Usuario
+  actualizarUsuario(input: ActualizarUsuario): Usuario
+
+  agregarProducto(input: AgregarProducto!): Producto
+  eliminarProductoById(input: EliminarProducto!): Producto
+  actualizarProducto(input: ActualizarProducto): Producto
+
+  agregarArticulo(input: AgregarArticulo!): Articulo
+  eliminarArticuloById(input: EliminarArticulo!): Articulo
+  actualizarArticulo(input: ActualizarArticulo): Articulo
+
+  agregarCaja(input: AgregarCaja): Caja
+  eliminarCajaById(input: EliminarCajaById): Caja
+  ActualizarCaja(input: ActualizarCaja): Caja
+
+  agregarContadorCopia(input: AgregarContadorCopia): ContadorCopia
+  eliminarContadorCopiaById(input: EliminarContadorCopiaById): ContadorCopia
+  actualizarContadorCopia(input: ActualizarContadorCopia): ContadorCopia
+  
+  agregarObservacion(input: AgregarObservacion): Observacion
+  eliminarObservacionByID(input: EliminarObservacionByID): Observacion
+  actualizarObservacion(input: ActualizarObservacion): Observacion
+
+  nuevaResponsiva(
+    input: AgregarResponsiva!,
+    productos: [AgregarProducto],
+    productosVendidos: [AgregarProducto],
+    articulosActuales: [AgregarArticulo],
+    articulosEntregados: [AgregarArticulo],
+    copiasActuales: AgregarContadorCopia,
+    copiasEntregadas: AgregarContadorCopia,
+    observaciones: [AgregarObservacion]
+  ): Responsiva
+  eliminarResponsiva(input: EliminarResponsivaById!): Responsiva
+  actualizarResponsiva(
+    input: AgregarResponsiva!,
+    productos: [AgregarProducto],
+    productosVendidos: [AgregarProducto],
+    articulosActuales: [AgregarArticulo],
+    articulosEntregados: [AgregarArticulo],
+    copiasActuales: AgregarContadorCopia,
+    copiasEntregadas: AgregarContadorCopia,
+    observaciones: [AgregarObservacion]
+  ): Responsiva
+
+  agregarSucursal(
+    input: AgregarSucursal!,
+    productos: [AgregarProducto],
+    articulos: [AgregarArticulo],
+    usuarios: [AgregarUsuario],
+    responsivas: [AgregarResponsiva],
+    contadorCopia: AgregarContadorCopia
+  ): Sucursal
+  eliminarSucursalById(input: EliminarSucursal!): Sucursal
+  actualizarSucursal(
+    input: AgregarSucursal!,
+    productos: [AgregarProducto],
+    articulos: [AgregarArticulo],
+    usuarios: [AgregarUsuario],
+    responsivas: [AgregarResponsiva],
+    contadorCopia: AgregarContadorCopia
+  ): Sucursal
+}
