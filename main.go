@@ -7,12 +7,14 @@ import (
 	"net/http"
 	"time"
 
+	"database"
+
 	"github.com/asticode/go-astikit"
 	"github.com/asticode/go-astilectron"
 )
 
 func index(writer http.ResponseWriter, request *http.Request) {
-	indexTemplate := template.Must(template.ParseFiles("gui/build/index.html"))
+	indexTemplate := template.Must(template.ParseFiles("ui/build/index.html"))
 	indexTemplate.Execute(writer, nil)
 }
 
@@ -22,7 +24,7 @@ func main() {
 
 	//Crea el servidor de react. FOR BUILD > go build -ldflags "-H windowsgui" -o main.exe
 	go func() {
-		sataticsFiles := http.FileServer(http.Dir("gui/build/static/"))
+		sataticsFiles := http.FileServer(http.Dir("ui/build/static/"))
 		http.Handle("/static/", http.StripPrefix("/static/", sataticsFiles))
 		http.HandleFunc("/", index)
 
@@ -37,7 +39,8 @@ func main() {
 	// Create astilectron
 	app, err := astilectron.New(loger, astilectron.Options{
 		AppName:            "simpleApp",
-		AppIconDefaultPath: "logo.png",
+		AppIconDefaultPath: "/src/logo.ico",
+		AppIconDarwinPath:  "/src/logo.icns",
 		BaseDirectoryPath:  "dependencies",
 	})
 	if err != nil {
@@ -82,6 +85,7 @@ func main() {
 	}
 
 	loaderWindow.Close()
-	// Blocking pattern
+
+	database.TestConnection()
 	app.Wait()
 }
