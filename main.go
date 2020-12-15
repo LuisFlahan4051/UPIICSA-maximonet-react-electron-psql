@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"database"
+	"github.com/LuisFlahan4051/maximonet/api/database"
 
 	"github.com/asticode/go-astikit"
 	"github.com/asticode/go-astilectron"
@@ -29,14 +29,15 @@ func main() {
 		http.HandleFunc("/", index)
 
 		fmt.Println("Servidor listo y corriendo en el puerto " + portGui + ".")
-		fmt.Println("Ya puede abrir la dirección " + urlGui + " en su navegador.")
+		fmt.Println("Ya puede abrir la dirección " + urlGui + " en su navegador.\n")
 		http.ListenAndServe(":"+portGui, nil)
 	}()
 
-	// Set logger
+	database.TestConnection()
+
 	loger := log.New(log.Writer(), log.Prefix(), log.Flags())
 
-	// Create astilectron
+	// ASTILECTRON APP
 	app, err := astilectron.New(loger, astilectron.Options{
 		AppName:            "simpleApp",
 		AppIconDefaultPath: "/src/logo.ico",
@@ -48,10 +49,9 @@ func main() {
 	}
 	defer app.Close()
 
-	// Handle signals
-	app.HandleSignals()
+	// Handle signals in terminal
+	//app.HandleSignals()
 
-	// Start
 	if err = app.Start(); err != nil {
 		loger.Fatal(fmt.Errorf("main: starting astilectron failed: %w", err))
 	}
@@ -65,27 +65,26 @@ func main() {
 	}); err != nil {
 		loger.Fatal(fmt.Errorf("main: new window failed: %w", err))
 	}
-
 	time.Sleep(1 * time.Second)
 	if err = loaderWindow.Create(); err != nil {
 		loger.Fatal(fmt.Errorf("main: creating window failed: %w", err))
 	}
+
 	time.Sleep(3 * time.Second)
 
-	var window *astilectron.Window
-	if window, err = app.NewWindow(urlGui, &astilectron.WindowOptions{
+	var mainWindow *astilectron.Window
+	if mainWindow, err = app.NewWindow(urlGui, &astilectron.WindowOptions{
 		Center: astikit.BoolPtr(true),
 		Height: astikit.IntPtr(700),
 		Width:  astikit.IntPtr(700),
 	}); err != nil {
 		loger.Fatal(fmt.Errorf("main: new window failed: %w", err))
 	}
-	if err = window.Create(); err != nil {
+	if err = mainWindow.Create(); err != nil {
 		loger.Fatal(fmt.Errorf("main: creating window failed: %w", err))
 	}
 
 	loaderWindow.Close()
 
-	database.TestConnection()
 	app.Wait()
 }
