@@ -2,10 +2,10 @@ INSERT INTO branches (name_branch, address_branch) VALUES
 ('Santa Ana', 'Calle Antonio Díaz Varela 30-38, San Onofre, Centro, 90800 Chiautempan, Tlax.'),
 ('Tlaxcala', 'Tlaxcala de Xicohtencatl, Tlax. Centro, Escalinatas');
 
-INSERT INTO users (name_user, lastName_user, nickname_user, password_user, root_user, admin_user, id_branch) VALUES
-('Luis Fernando', 'Melendez Bustamante', 'luisflahan', '4051', 'TRUE', 'FALSE', 1),
-('user1', 'last name', 'user1', '123', 'FALSE', 'FALSE', 1),
-('', '', 'admin', '123', 'FALSE', 'TRUE', 2);
+INSERT INTO users (name_user, lastName_user, nickname_user, password_user, root_user, admin_user, registrationDate, id_branch) VALUES
+('Luis Fernando', 'Melendez Bustamante', 'luisflahan', '4051', 'TRUE', 'FALSE', '17/11/2020', 1),
+('user1', 'last name', 'user1', '123', 'FALSE', 'FALSE', '17/11/2020', 1),
+('', '', 'admin', '123', 'FALSE', 'TRUE', '17/11/2020', 2);
 
 INSERT INTO products(name_product, details_product, basePrice_product) VALUES 
 ('Coca Cola 600', 'Refresco de cola de 600ml', 18.5),

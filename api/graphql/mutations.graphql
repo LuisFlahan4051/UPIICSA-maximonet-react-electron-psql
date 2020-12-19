@@ -1,0 +1,65 @@
+type Mutation {
+  crearUsuario(input: AgregarUsuario!): Usuario
+  eliminarUsuarioById(input: EliminarUsuario!): Usuario
+  actualizarUsuario(input: ActualizarUsuario): Usuario
+
+  agregarProducto(input: AgregarProducto!): Producto
+  eliminarProductoById(input: EliminarProducto!): Producto
+  actualizarProducto(input: ActualizarProducto): Producto
+
+  agregarArticulo(input: AgregarArticulo!): Articulo
+  eliminarArticuloById(input: EliminarArticulo!): Articulo
+  actualizarArticulo(input: ActualizarArticulo): Articulo
+
+  agregarCaja(input: AgregarCaja): Caja
+  eliminarCajaById(input: EliminarCajaById): Caja
+  ActualizarCaja(input: ActualizarCaja): Caja
+
+  agregarContadorCopia(input: AgregarContadorCopia): ContadorCopia
+  eliminarContadorCopiaById(input: EliminarContadorCopiaById): ContadorCopia
+  actualizarContadorCopia(input: ActualizarContadorCopia): ContadorCopia
+
+  agregarObservacion(input: AgregarObservacion): Observacion
+  eliminarObservacionByID(input: EliminarObservacionByID): Observacion
+  actualizarObservacion(input: ActualizarObservacion): Observacion
+
+  nuevaResponsiva(
+    input: AgregarResponsiva!
+    productos: [AgregarProducto]
+    productosVendidos: [AgregarProducto]
+    articulosActuales: [AgregarArticulo]
+    articulosEntregados: [AgregarArticulo]
+    copiasActuales: AgregarContadorCopia
+    copiasEntregadas: AgregarContadorCopia
+    observaciones: [AgregarObservacion]
+  ): Responsiva
+  eliminarResponsiva(input: EliminarResponsivaById!): Responsiva
+  actualizarResponsiva(
+    input: AgregarResponsiva!
+    productos: [AgregarProducto]
+    productosVendidos: [AgregarProducto]
+    articulosActuales: [AgregarArticulo]
+    articulosEntregados: [AgregarArticulo]
+    copiasActuales: AgregarContadorCopia
+    copiasEntregadas: AgregarContadorCopia
+    observaciones: [AgregarObservacion]
+  ): Responsiva
+
+  agregarSucursal(
+    input: AgregarSucursal!
+    productos: [AgregarProducto]
+    articulos: [AgregarArticulo]
+    usuarios: [AgregarUsuario]
+    responsivas: [AgregarResponsiva]
+    contadorCopia: AgregarContadorCopia
+  ): Sucursal
+  eliminarSucursalById(input: EliminarSucursal!): Sucursal
+  actualizarSucursal(
+    input: AgregarSucursal!
+    productos: [AgregarProducto]
+    articulos: [AgregarArticulo]
+    usuarios: [AgregarUsuario]
+    responsivas: [AgregarResponsiva]
+    contadorCopia: AgregarContadorCopia
+  ): Sucursal
+}

@@ -18,6 +18,7 @@
             margin: 0% 5% 0% 5%;
             justify-items: center;
             align-items: center;
+            -webkit-app-region: drag;
         }
 
         h1 {
@@ -26,10 +27,12 @@
             font-size: 40px;
             margin: 0px;
             color: #FF26A5;
+            -webkit-app-region: drag;
         }
 
         .logoKrissNet {
             width: 40%;
+            -webkit-app-region: drag;
         }
 
         .loaderBar {
@@ -43,6 +46,7 @@
             animation-fill-mode: forwards;
             justify-self: start;
             margin-bottom: 15px;
+            -webkit-app-region: drag;
         }
 
         @keyframes loaderAnimation {
@@ -61,7 +65,7 @@
     <h1>¡Bienvenido!</h1>
     <!-- <img class="logoKrissNet" src="%PUBLIC_URL%/logo.svg" alt="Logo KrisstalNet"> -->
     <img class="logoKrissNet" src="src/namesSVG.svg" alt="Logo KrisstalNet">
-
+    
     <div id="loaderBar" class="loaderBar"></div>
 </body>
 

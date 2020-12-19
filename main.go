@@ -7,10 +7,17 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/LuisFlahan4051/maximonet/api"
 	"github.com/LuisFlahan4051/maximonet/api/database"
 
 	"github.com/asticode/go-astikit"
 	"github.com/asticode/go-astilectron"
+)
+
+var (
+	port        = "4051"
+	urlGui      = "http://localhost:" + port + "/"
+	GraphHandle = "/graph"
 )
 
 func index(writer http.ResponseWriter, request *http.Request) {
@@ -18,23 +25,17 @@ func index(writer http.ResponseWriter, request *http.Request) {
 	indexTemplate.Execute(writer, nil)
 }
 
-func main() {
-	portGui := "4051"
-	urlGui := "http://localhost:" + portGui + "/"
+func loadServerUI() {
+	sataticsFiles := http.FileServer(http.Dir("ui/build/static/"))
+	http.Handle("/static/", http.StripPrefix("/static/", sataticsFiles))
+	http.HandleFunc("/", index)
 
-	//Crea el servidor de react. FOR BUILD > go build -ldflags "-H windowsgui" -o main.exe
-	go func() {
-		sataticsFiles := http.FileServer(http.Dir("ui/build/static/"))
-		http.Handle("/static/", http.StripPrefix("/static/", sataticsFiles))
-		http.HandleFunc("/", index)
+	fmt.Println("Servidor listo y corriendo en el puerto " + port + ".")
+	fmt.Println("Ya puede abrir la dirección " + urlGui + " en su navegador.\n")
+	http.ListenAndServe(":"+port, nil)
+}
 
-		fmt.Println("Servidor listo y corriendo en el puerto " + portGui + ".")
-		fmt.Println("Ya puede abrir la dirección " + urlGui + " en su navegador.\n")
-		http.ListenAndServe(":"+portGui, nil)
-	}()
-
-	database.TestConnection()
-
+func runElectron() {
 	loger := log.New(log.Writer(), log.Prefix(), log.Flags())
 
 	// ASTILECTRON APP
@@ -50,7 +51,7 @@ func main() {
 	defer app.Close()
 
 	// Handle signals in terminal
-	//app.HandleSignals()
+	app.HandleSignals()
 
 	if err = app.Start(); err != nil {
 		loger.Fatal(fmt.Errorf("main: starting astilectron failed: %w", err))
@@ -87,4 +88,16 @@ func main() {
 	loaderWindow.Close()
 
 	app.Wait()
+}
+
+func main() {
+	//FOR BUILD > go build -ldflags "-H windowsgui" -o main.exe
+
+	api.LoadGraphqlServer(port, GraphHandle)
+
+	go loadServerUI()
+
+	database.TestConnection()
+
+	runElectron()
 }

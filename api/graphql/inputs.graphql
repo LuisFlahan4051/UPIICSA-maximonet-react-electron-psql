@@ -1,0 +1,194 @@
+input AgregarSucursal {
+  id: ID!
+  nombre: String!
+  direccion: String
+}
+
+input EliminarSucursal {
+  id: ID!
+}
+
+input ActualizarSucursal {
+  id: ID!
+  nombre: String!
+  direccion: String
+}
+
+input AgregarResponsiva {
+  id: ID!
+  numeroCaja: Int!
+  fechaEntrada: String!
+  fechaSalida: String
+  verificacionArticulos: Boolean
+  reporteFaltante: Boolean
+  sucursal: ID!
+}
+
+input EliminarResponsivaById {
+  id: ID!
+}
+
+input ActualizarResponsiva {
+  id: ID!
+  numeroCaja: Int!
+  fechaEntrada: String
+  fechaSalida: String
+  verificacionArticulos: Boolean
+  reporteFaltante: Boolean
+  sucursal: ID
+}
+
+input ActualizarUsuario {
+  id: ID!
+  nombre: String
+  mail: String
+  nick: String
+  pass: String!
+  admin: Boolean
+  root: Boolean
+}
+
+input AgregarUsuario {
+  id: ID!
+  nombre: String
+  mail: String
+  nick: String!
+  pass: String!
+  admin: Boolean
+  root: Boolean
+}
+
+input EliminarUsuario {
+  id: ID!
+}
+
+input AgregarProducto {
+  id: ID!
+  nombre: String!
+  descripcion: String
+  precio: Float
+  stock: Int
+  sucursal: ID
+  numeroCaja: Int
+}
+
+input EliminarProducto {
+  id: ID!
+}
+
+input ActualizarProducto {
+  id: ID!
+  nombre: String
+  descripcion: String
+  precio: Float
+  stock: Int
+  sucursal: ID
+  numeroCaja: Int
+}
+
+input AgregarArticulo {
+  id: ID!
+  nombre: String!
+  descripcion: String
+  stok: Int
+  tipo: String
+  sucursal: ID
+  numeroCaja: Int
+}
+
+input EliminarArticulo {
+  id: ID!
+}
+
+input ActualizarArticulo {
+  id: ID!
+  nombre: String
+  descripcion: String
+  stok: Int
+  tipo: String
+  sucursal: ID
+  numeroCaja: Int
+}
+
+input AgregarContadorCopia {
+  id: ID!
+  papel: Int
+  copiasBN: Int
+  copiasColor: Int
+  impresionesBN: Int
+  impresionesColor: Int
+  sucursal: ID
+  numeroCaja: Int
+}
+
+input EliminarContadorCopiaById {
+  id: ID!
+}
+
+input ActualizarContadorCopia {
+  id: ID!
+  papel: Int
+  copiasBN: Int
+  copiasColor: Int
+  impresionesBN: Int
+  impresionesColor: Int
+  sucursal: ID
+  numeroCaja: Int
+}
+
+input AgregarObservacion {
+  id: ID!
+  descripcion: String
+  egreso: Float
+  numeroCaja: Int!
+}
+
+input EliminarObservacionByID {
+  id: ID!
+}
+
+input ActualizarObservacion {
+  id: ID!
+  descripcion: String
+  egreso: Float
+  numeroCaja: Int!
+}
+
+input AgregarCaja {
+  id: ID!
+  monedas50centavos: Float
+  monedas1Peso: Float
+  monedas2Pesos: Float
+  monedas5Pesos: Float
+  monedas10Pesos: Float
+  monedas20Pesos: Float
+  billetes20: Float
+  billetes50: Float
+  billetes100: Float
+  billetes200: Float
+  billetes500: Float
+  billetes1000: Float
+  numeroCaja: Int!
+}
+
+input EliminarCajaById {
+  id: ID!
+  numeroCaja: Int
+}
+
+input ActualizarCaja {
+  id: ID!
+  monedas50centavos: Float
+  monedas1Peso: Float
+  monedas2Pesos: Float
+  monedas5Pesos: Float
+  monedas10Pesos: Float
+  monedas20Pesos: Float
+  billetes20: Float
+  billetes50: Float
+  billetes100: Float
+  billetes200: Float
+  billetes500: Float
+  billetes1000: Float
+  numeroCaja: Int!
+}

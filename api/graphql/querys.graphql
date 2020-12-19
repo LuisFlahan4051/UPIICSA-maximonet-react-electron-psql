@@ -1,0 +1,9 @@
+type Query {
+  usuarios(id: ID): [Usuario]
+  productos(sucursal: ID): [Producto]
+  sucursales: [Sucursal]
+  articulos(sucursal: ID, numeroCaja: Int): [Articulo]
+  responsivas(sucursal: ID, numeroCaja: Int): [Responsiva]
+  copias(sucursal: ID, numeroCaja: Int): [ContadorCopia]
+  observaciones(sucursal: ID, numeroCaja: ID): [Observacion]
+}

@@ -1,0 +1,96 @@
+type Usuario {
+  id: ID!
+  nombre: String
+  mail: String
+  nick: String!
+  pass: String!
+  admin: Boolean
+  root: Boolean
+  sucursal: ID
+}
+
+type Producto {
+  id: ID!
+  nombre: String!
+  descripcion: String
+  precio: Float
+  stock: Int
+  sucursal: ID
+  numeroCaja: Int
+}
+
+type Observacion {
+  id: ID
+  descripcion: String
+  egreso: Float
+  numeroCaja: Int!
+}
+
+type Caja {
+  id: ID
+  monedas50centavos: Float
+  monedas1Peso: Float
+  monedas2Pesos: Float
+  monedas5Pesos: Float
+  monedas10Pesos: Float
+  monedas20Pesos: Float
+  billetes20: Float
+  billetes50: Float
+  billetes100: Float
+  billetes200: Float
+  billetes500: Float
+  billetes1000: Float
+  numeroCaja: Int!
+}
+
+type ContadorCopia {
+  id: ID
+  papel: Int
+  copiasBN: Int
+  copiasColor: Int
+  impresionesBN: Int
+  impresionesColor: Int
+  sucursal: ID
+  numeroCaja: Int
+}
+
+type Articulo {
+  id: ID!
+  nombre: String!
+  descripcion: String
+  stok: Int
+  tipo: String
+  sucursal: ID
+  numeroCaja: Int
+}
+
+type Responsiva {
+  id: ID!
+  numeroCaja: Int!
+  fechaEntrada: String!
+  fechaSalida: String
+  verificacionArticulos: Boolean
+  reporteFaltante: Boolean
+  usuarioEncargado: Usuario!
+  usuarioReceptor: Usuario
+  productos: [Producto]
+  productosVendidos: [Producto]
+  articulosActuales: [Articulo]
+  articulosEntregados: [Articulo]
+  copiasActuales: ContadorCopia
+  copiasEntregadas: ContadorCopia
+  observaciones: [Observacion]
+  caja: Caja
+  sucursal: ID!
+}
+
+type Sucursal {
+  id: ID!
+  nombre: String!
+  direccion: String
+  productos: [Producto]
+  usuarios: [Usuario]
+  responsivas: [Responsiva]
+  articulos: [Articulo]
+  contadorCopia: ContadorCopia
+}
