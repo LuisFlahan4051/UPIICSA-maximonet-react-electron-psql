@@ -9,16 +9,16 @@ import (
 
 	"github.com/LuisFlahan4051/maximonet/api"
 	"github.com/LuisFlahan4051/maximonet/api/database"
-	"github.com/go-chi/chi"
-
 	"github.com/asticode/go-astikit"
 	"github.com/asticode/go-astilectron"
+	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 )
 
 var (
-	port        = "4051"
-	urlGui      = "http://localhost:" + port + "/"
-	graphHandle = "/graph"
+	port      = "4051"
+	urlGui    = "http://localhost:" + port + "/"
+	graphDoor = "/graph"
 )
 
 func index(writer http.ResponseWriter, request *http.Request) {
@@ -26,14 +26,41 @@ func index(writer http.ResponseWriter, request *http.Request) {
 	indexTemplate.Execute(writer, nil)
 }
 
-func loadServerUI(mux *chi.Mux) {
-	sataticsFiles := http.FileServer(http.Dir("ui/build/static/"))
-	http.Handle("/static/", http.StripPrefix("/static/", sataticsFiles))
-	http.HandleFunc("/", index)
+func addUIHandler(mux *mux.Router) *mux.Router {
+	staticFiles := http.FileServer(http.Dir("ui/build/static/"))
 
-	fmt.Println("Servidor listo y corriendo en el puerto " + port + ".")
+	mux.PathPrefix("/static/").Handler(http.StripPrefix("/static/", staticFiles))
+	mux.HandleFunc("/", index)
+
+	fmt.Println("Puerto " + port + ". Añadido correctamente!")
 	fmt.Println("Ya puede abrir la dirección " + urlGui + " en su navegador.\n")
-	http.ListenAndServe(":"+port, mux)
+	return mux
+}
+
+func newMux() *mux.Router {
+	mux := mux.NewRouter()
+
+	//Use this for enable all origins of requests
+	mux.Use(cors.AllowAll().Handler)
+
+	//Use this for enable specific origins
+	/* mux.Use(cors.New(cors.Options{
+		AllowedOrigins:   []string{
+			"http://localhost:8080",
+			"http://localhost:"+port,
+		},
+		AllowCredentials: true,
+		Debug:            true,
+	}).Handler) */
+
+	mux = addUIHandler(mux)
+	mux = api.AddGraphqlServer(port, graphDoor, mux)
+	return mux
+}
+
+func runServer(mux *mux.Router) {
+	fmt.Println("Serve working fine!")
+	log.Fatal(http.ListenAndServe(":"+port, mux))
 }
 
 func runElectron() {
@@ -94,9 +121,9 @@ func runElectron() {
 func main() {
 	//FOR BUILD > go build -ldflags "-H windowsgui" -o main.exe
 
-	mux := api.LoadGraphqlServer(port, graphHandle)
+	prepareMux := newMux()
 
-	go loadServerUI(mux)
+	go runServer(prepareMux)
 
 	database.TestConnection()
 
