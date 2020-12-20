@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="366" height="422.886" viewBox="0 0 366 422.886">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #b9b9b9;
+      }
+
+      .cls-2 {
+        fill: #919090;
+      }
+    </style>
+  </defs>
+  <g id="Herramientas" transform="translate(-213.5 533.938)">
+    <path id="Exclusión_1" data-name="Exclusión 1" class="cls-1" d="M150,300a151.11,151.11,0,0,1-30.23-3.047,149.179,149.179,0,0,1-53.636-22.57,150.437,150.437,0,0,1-54.346-66,149.241,149.241,0,0,1-8.74-28.156,151.463,151.463,0,0,1,0-60.46,149.18,149.18,0,0,1,22.57-53.636,150.437,150.437,0,0,1,66-54.346,149.245,149.245,0,0,1,28.157-8.74,151.463,151.463,0,0,1,60.46,0,149.178,149.178,0,0,1,53.636,22.57,150.437,150.437,0,0,1,54.346,66,149.25,149.25,0,0,1,8.74,28.157,151.463,151.463,0,0,1,0,60.46,149.177,149.177,0,0,1-22.57,53.636,150.437,150.437,0,0,1-66,54.346,149.246,149.246,0,0,1-28.156,8.74A151.107,151.107,0,0,1,150,300Zm0-250A100,100,0,1,0,250,150,100.113,100.113,0,0,0,150,50Z" transform="translate(247 -475)"/>
+    <rect id="Rectángulo_79" data-name="Rectángulo 79" class="cls-1" width="54" height="45" rx="10" transform="translate(370 -511)"/>
+    <rect id="Rectángulo_80" data-name="Rectángulo 80" class="cls-1" width="54" height="45" rx="10" transform="translate(370 -185)"/>
+    <rect id="Rectángulo_81" data-name="Rectángulo 81" class="cls-1" width="54" height="45" rx="10" transform="translate(579.5 -359.5) rotate(90)"/>
+    <rect id="Rectángulo_83" data-name="Rectángulo 83" class="cls-1" width="54" height="45" rx="10" transform="translate(508.818 -471.502) rotate(45)"/>
+    <rect id="Rectángulo_85" data-name="Rectángulo 85" class="cls-1" width="54" height="45" rx="10" transform="translate(277.818 -247.502) rotate(45)"/>
+    <rect id="Rectángulo_86" data-name="Rectángulo 86" class="cls-1" width="54" height="45" rx="10" transform="translate(477.998 -214.318) rotate(-45)"/>
+    <rect id="Rectángulo_84" data-name="Rectángulo 84" class="cls-1" width="54" height="45" rx="10" transform="translate(246.998 -436.318) rotate(-45)"/>
+    <rect id="Rectángulo_82" data-name="Rectángulo 82" class="cls-1" width="54" height="45" rx="10" transform="translate(258.5 -359.5) rotate(90)"/>
+    <rect id="Rectángulo_87" data-name="Rectángulo 87" class="cls-2" width="29" height="373" transform="matrix(0.866, 0.5, -0.5, 0.866, 465.769, -490.647)"/>
+    <path id="Exclusión_2" data-name="Exclusión 2" class="cls-2" d="M36.3,63.277a12,12,0,0,1-5.989-1.61l-19.919-11.5A12,12,0,0,1,6,33.775L19.5,10.392A11.994,11.994,0,0,1,35.564,5.817L22.6,28.275a12,12,0,1,0,20.785,12l12.961-22.45A11.99,11.99,0,0,1,60.2,33.892L46.7,57.275a11.994,11.994,0,0,1-10.4,6ZM56.343,17.826h0c-.169-.11-.347-.22-.531-.326L35.892,6c-.106-.061-.217-.123-.328-.183l.034-.059,20.785,12-.039.067Z" transform="translate(458.148 -538.329)"/>
+    <path id="Exclusión_3" data-name="Exclusión 3" class="cls-2" d="M31.913,58.887a12,12,0,0,1-5.989-1.61L6.006,45.777A12,12,0,0,1,1.613,29.385L15.113,6A11.995,11.995,0,0,1,31.177,1.427L18.211,23.885A12,12,0,1,0,39,35.885l12.961-22.45A11.99,11.99,0,0,1,55.816,29.5l-13.5,23.383a12,12,0,0,1-10.4,6ZM51.956,13.436h0c-.169-.11-.347-.22-.531-.326L31.505,1.61c-.107-.062-.217-.123-.328-.183l.034-.059L52,13.368l-.039.067Z" transform="translate(307.964 -111.052) rotate(180)"/>
+  </g>
+</svg>

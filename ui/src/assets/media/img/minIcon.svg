@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="23" height="4" viewBox="0 0 23 4">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <rect id="minIcon" class="cls-1" width="23" height="4" rx="2"/>
+</svg>

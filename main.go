@@ -9,6 +9,7 @@ import (
 
 	"github.com/LuisFlahan4051/maximonet/api"
 	"github.com/LuisFlahan4051/maximonet/api/database"
+	"github.com/go-chi/chi"
 
 	"github.com/asticode/go-astikit"
 	"github.com/asticode/go-astilectron"
@@ -17,7 +18,7 @@ import (
 var (
 	port        = "4051"
 	urlGui      = "http://localhost:" + port + "/"
-	GraphHandle = "/graph"
+	graphHandle = "/graph"
 )
 
 func index(writer http.ResponseWriter, request *http.Request) {
@@ -25,14 +26,14 @@ func index(writer http.ResponseWriter, request *http.Request) {
 	indexTemplate.Execute(writer, nil)
 }
 
-func loadServerUI() {
+func loadServerUI(mux *chi.Mux) {
 	sataticsFiles := http.FileServer(http.Dir("ui/build/static/"))
 	http.Handle("/static/", http.StripPrefix("/static/", sataticsFiles))
 	http.HandleFunc("/", index)
 
 	fmt.Println("Servidor listo y corriendo en el puerto " + port + ".")
 	fmt.Println("Ya puede abrir la dirección " + urlGui + " en su navegador.\n")
-	http.ListenAndServe(":"+port, nil)
+	http.ListenAndServe(":"+port, mux)
 }
 
 func runElectron() {
@@ -40,7 +41,7 @@ func runElectron() {
 
 	// ASTILECTRON APP
 	app, err := astilectron.New(loger, astilectron.Options{
-		AppName:            "simpleApp",
+		AppName:            "MaximoNet",
 		AppIconDefaultPath: "/src/logo.ico",
 		AppIconDarwinPath:  "/src/logo.icns",
 		BaseDirectoryPath:  "dependencies",
@@ -51,7 +52,7 @@ func runElectron() {
 	defer app.Close()
 
 	// Handle signals in terminal
-	app.HandleSignals()
+	//app.HandleSignals()
 
 	if err = app.Start(); err != nil {
 		loger.Fatal(fmt.Errorf("main: starting astilectron failed: %w", err))
@@ -93,9 +94,9 @@ func runElectron() {
 func main() {
 	//FOR BUILD > go build -ldflags "-H windowsgui" -o main.exe
 
-	api.LoadGraphqlServer(port, GraphHandle)
+	mux := api.LoadGraphqlServer(port, graphHandle)
 
-	go loadServerUI()
+	go loadServerUI(mux)
 
 	database.TestConnection()
 

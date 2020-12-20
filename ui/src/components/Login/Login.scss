@@ -1,0 +1,216 @@
+@import '../../Paleta-colores.scss';
+
+.Index-login{
+    height: 100%;
+    width: 100%;
+    -webkit-app-region: drag;
+}
+
+.shadow{
+    box-shadow: 0px 3px 6px $shadow;
+}
+
+.button{
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+    height: 35px;
+    width: 80px;
+    outline: none;
+}
+
+.input{
+    appearance: none;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+}
+
+/*------------------------------------*/
+
+.login{
+    height: 600px;
+    width: 500px;
+    background: $background-login;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $background-login;
+    -webkit-app-region: drag;
+}
+
+.login__logo{
+    height: 30%;
+    -webkit-app-region: drag;
+}
+
+.login__form{
+    width: 70%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__fild{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+}
+
+.form__label{
+    margin-left: 15px;
+    color: $text;
+}
+
+.form__select{
+    position: relative;
+}
+
+.select__input{
+    width: 90%;
+    padding: 0px;
+    border-style: none;
+    border-width: 0px;
+}
+
+.select__icon{
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    cursor: pointer;
+}
+
+.select__icon img {
+    width: 20px;
+}
+
+.icon-motion-right{
+    animation-name: icon-motion-right;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes icon-motion-right{
+    to{
+        transform: rotate(540deg);
+    }
+}
+
+.icon-motion-left{
+    animation-name: icon-motion-left;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+}
+
+@keyframes icon-motion-left{
+    to{
+        transform: rotate(-360deg);
+    }
+}
+
+.options_area{
+    position: absolute;
+    align-content: center;
+    background-color: $background-login;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $border;
+    border-radius: 15px;
+    width: 100%;
+    margin-top: 5px;
+    max-height: 200px;
+    animation-name: options_motion;
+    animation-duration: 500ms;
+    overflow: auto;
+}
+
+.options_area::-webkit-scrollbar{
+    -webkit-appearance: none;
+}
+.options_area::-webkit-scrollbar:vertical {
+    width:1px;
+}
+@keyframes options_motion{
+    from{
+        transform: translateY(-5px);
+    }
+    to{
+        transform: translateY(0px);
+    }
+}
+
+.select__option{
+    border-radius: 15px;
+    width: 92%;
+    height: 35px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    padding-top: 7px;
+    padding-left: 5px;
+    cursor: pointer;
+}
+
+.select__option:hover{
+    background-color: $color-select-hover;
+}
+
+.select__area, .form__password{
+    border-style: solid;
+    border-width: 1px;
+    border-color: $border;
+    border-radius: 15px;
+    width: 100% -15px;
+    height: 35px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.form__link{
+    text-decoration: none;
+    appearance: none;
+    align-self: flex-end;
+    margin: 0px;
+    color: $color-green-menta;
+    cursor: pointer;
+}
+
+.form__link:hover{
+    color: $color-cyan-primary;
+}
+
+.form__btnArea{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    margin-top: 30%;
+}
+
+.form__btnCancel{
+    border-color: $color-pink-primary;
+    color: $color-pink-primary;
+    background-color: $background-login;
+}
+
+.form__btnCancel:hover{
+    border-color: $color-pink-primary;
+    color: $background-login;
+    background-color: $color-pink-primary;
+    box-shadow: 0px 3px 6px $shadow;
+}
+
+.form__btnEntry{
+    border-color: $color-cyan-primary;
+    color: $color-cyan-primary;
+    background-color: $background-login;
+}
+
+.form__btnEntry:hover{
+    border-color: $color-cyan-primary;
+    color: $background-login;
+    background-color: $color-cyan-primary;
+    box-shadow: 0px 3px 6px $shadow;
+}

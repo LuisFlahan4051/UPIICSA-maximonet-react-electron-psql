@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="306" viewBox="0 0 400 306">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #474747;
+      }
+
+      .cls-2 {
+        fill: #dfdfdf;
+      }
+
+      .cls-3, .cls-7 {
+        fill: #00fff0;
+      }
+
+      .cls-4 {
+        fill: #00b8ad;
+      }
+
+      .cls-5 {
+        fill: #1e7b76;
+      }
+
+      .cls-6 {
+        fill: #ff26a5;
+        font-size: 111px;
+      }
+
+      .cls-6, .cls-7 {
+        font-family: FreestyleScript-Regular, Freestyle Script;
+      }
+
+      .cls-7 {
+        font-size: 17px;
+      }
+    </style>
+  </defs>
+  <g id="Pantalla" transform="translate(-667 442)">
+    <ellipse id="Elipse_10" data-name="Elipse 10" class="cls-1" cx="125.5" cy="19.5" rx="125.5" ry="19.5" transform="translate(742 -175)"/>
+    <path id="Polígono_1" data-name="Polígono 1" class="cls-1" d="M52,0l52,101H0Z" transform="translate(815 -257)"/>
+    <rect id="Rectángulo_95" data-name="Rectángulo 95" class="cls-1" width="400" height="233.663" rx="11" transform="translate(667 -442)"/>
+    <rect id="Rectángulo_96" data-name="Rectángulo 96" class="cls-2" width="360" height="204.455" rx="11" transform="translate(687 -432)"/>
+    <circle id="Elipse_11" data-name="Elipse 11" class="cls-3" cx="5" cy="5" r="5" transform="translate(693 -222)"/>
+    <circle id="Elipse_12" data-name="Elipse 12" class="cls-4" cx="5" cy="5" r="5" transform="translate(706 -222)"/>
+    <circle id="Elipse_13" data-name="Elipse 13" class="cls-5" cx="5" cy="5" r="5" transform="translate(719 -222)"/>
+    <text id="K" class="cls-6" transform="translate(861 -293)"><tspan x="-25.663" y="0">K</tspan></text>
+    <text id="K-2" data-name="K" class="cls-7" transform="translate(866 -212)"><tspan x="-3.93" y="0">K</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="23" height="22" viewBox="0 0 23 22">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-2 {
+        stroke: #fff;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="maxIcon" transform="translate(-1510 -95)">
+    <rect id="Rectángulo_126" data-name="Rectángulo 126" class="cls-1" width="23" height="20" rx="4" transform="translate(1510 97)"/>
+    <g id="Rectángulo_123" data-name="Rectángulo 123" class="cls-2" transform="translate(1510 95)">
+      <rect class="cls-3" width="23" height="20" rx="3"/>
+      <rect class="cls-4" x="0.5" y="0.5" width="22" height="19" rx="2.5"/>
+    </g>
+  </g>
+</svg>

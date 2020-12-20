@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="284.765" height="318" viewBox="0 0 284.765 318">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: red;
+      }
+
+      .cls-2 {
+        fill: #c9c9c9;
+      }
+
+      .cls-3, .cls-4 {
+        fill: #fff;
+      }
+
+      .cls-4 {
+        font-size: 132px;
+        font-family: HarlowSolid, Harlow Solid;
+      }
+    </style>
+  </defs>
+  <g id="Cola" transform="translate(115.372 492)">
+    <rect id="Rectángulo_76" data-name="Rectángulo 76" class="cls-1" width="216" height="302" rx="30" transform="translate(-81 -485)"/>
+    <rect id="Rectángulo_77" data-name="Rectángulo 77" class="cls-2" width="159" height="7" rx="3" transform="translate(-53 -492)"/>
+    <rect id="Rectángulo_78" data-name="Rectángulo 78" class="cls-2" width="159" height="9" rx="3" transform="translate(-53 -183)"/>
+    <path id="Trazado_3" data-name="Trazado 3" class="cls-3" d="M27-482.255c-19.2,95.939,1.234,199.11,29.839,256.723,15.534,31.287,45.215,41.847,45.215,41.847H27S10.019-283.876,10.687-383.4s7.1-102.863,7.1-102.863H28.048Z" transform="translate(-7 1)"/>
+    <text id="Cola-2" data-name="Cola" class="cls-4" transform="translate(-43 -240) rotate(-39)"><tspan x="0" y="0">Cola</tspan></text>
+  </g>
+</svg>

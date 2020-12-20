@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1734.739" height="1587.907" viewBox="0 0 1734.739 1587.907">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #212121;
+        stroke-width: 30px;
+      }
+
+      .cls-1, .cls-15, .cls-3 {
+        stroke: #ff26a5;
+      }
+
+      .cls-2, .cls-4 {
+        fill: #303030;
+      }
+
+      .cls-15, .cls-3, .cls-7 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        stroke-width: 15px;
+        font-size: 1000px;
+      }
+
+      .cls-14, .cls-3 {
+        font-family: FreestyleScript-Regular, Freestyle Script;
+      }
+
+      .cls-4 {
+        stroke: #00fff0;
+        stroke-width: 20px;
+      }
+
+      .cls-5 {
+        fill: #c2c2c2;
+      }
+
+      .cls-6 {
+        fill: #e5e5e5;
+      }
+
+      .cls-14, .cls-8 {
+        fill: #ff26a5;
+      }
+
+      .cls-9 {
+        fill: #00fff0;
+      }
+
+      .cls-10 {
+        fill: #363636;
+      }
+
+      .cls-11 {
+        fill: #01af01;
+      }
+
+      .cls-12 {
+        fill: lime;
+      }
+
+      .cls-13 {
+        fill: #fe0;
+      }
+
+      .cls-14 {
+        font-size: 87px;
+      }
+
+      .cls-15 {
+        stroke-width: 5px;
+      }
+
+      .cls-16 {
+        stroke: none;
+      }
+
+      .cls-17 {
+        fill: none;
+      }
+
+      .cls-18 {
+        filter: url(#Elipse_3);
+      }
+
+      .cls-19 {
+        filter: url(#Unión_2);
+      }
+    </style>
+    <filter id="Unión_2" x="0" y="0" width="1461.738" height="1567.156" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="30" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Elipse_3" x="954.738" y="711.157" width="780" height="780" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="30" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="darkMiniLogoV3" transform="translate(108.738 1710.157)">
+    <g id="CabezaGato" transform="translate(118 -1348)">
+      <g class="cls-19" transform="matrix(1, 0, 0, 1, -226.74, -362.16)">
+        <path id="Unión_2-2" data-name="Unión 2" class="cls-1" d="M-705.368-2167.985a553.53,553.53,0,0,1,7.777-92.687c-187.327-107.812-157.818-310.885-157.818-310.885s4.953-18.228,28.335-17.73c31.711.674,90.32,22.3,143.895,43.658,33.288,13.269,69.832,20.46,104,27.071a552.172,552.172,0,0,1,178.166-141.658C-431.738-2870.273-257.7-2973.568-257.7-2973.568s17.308-7.622,31.649,10.842c19.45,25.043,39.533,84.146,56.655,139.172,11.674,37.519,31.52,73.482,49.189,106.674,287.375,18.129,514.837,256.948,514.837,548.894,0,303.757-246.243,550-550,550S-705.368-1864.228-705.368-2167.985Z" transform="translate(962.11 3080.14)"/>
+      </g>
+      <path id="Trazado_12" data-name="Trazado 12" class="cls-2" d="M109.663-42.927C333.5-155.133,393.423,63.665,393.423,63.665a24.546,24.546,0,0,1-10.959,22.986c-17.916,12.379-56.642,22-92.478,29.761-31.034,6.722-62.357,23.683-89.535,35.036C192.2,154.893,88.873,195.593,84.6,206.956c-3.8,10.107,18.183-40.087,15.393-39.328-4.232,1.187-2.59-34.423-7.435-40.418-10.59-13.1,19.1-50.44,24.852-85.648C124.483-1.774,109.663-42.927,109.663-42.927Z" transform="translate(206.859 419.048) rotate(-150)"/>
+      <path id="Trazado_12-2" data-name="Trazado 12" class="cls-2" d="M1.279,223.973C-18.905-25.6,206.408.805,206.408.805a24.546,24.546,0,0,1,17.207,18.772c4.766,21.249-.821,60.758-7.049,96.893-5.393,31.292-1.4,66.688-1.056,96.14.1,8.938-.868,119.991,8.067,128.211,7.947,7.311-30.356-31.876-30.7-29.005-.485,4.368-32.887-10.494-40.26-8.247-9.845,3-22.447-11.331-37.881-27.331-9.557-9.907-20.36-20.591-32.221-27.8C44.987,225.649,1.279,223.973,1.279,223.973Z" transform="translate(295.198 -123.238) rotate(-31)"/>
+      <text id="K" class="cls-3" transform="translate(266.25 883.75)"><tspan x="0" y="0">K</tspan></text>
+    </g>
+    <g class="cls-18" transform="matrix(1, 0, 0, 1, -108.74, -1710.16)">
+      <g id="Elipse_3-2" data-name="Elipse 3" class="cls-4" transform="translate(1044.74 801.16)">
+        <circle class="cls-16" cx="300" cy="300" r="300"/>
+        <circle class="cls-17" cx="300" cy="300" r="290"/>
+      </g>
+    </g>
+    <g id="impresoraBlanca" transform="translate(-3428 -1432)">
+      <rect id="Rectángulo_3" data-name="Rectángulo 3" class="cls-5" width="300" height="160" rx="25" transform="translate(4526 760)"/>
+      <path id="Unión_1" data-name="Unión 1" class="cls-6" d="M25,86A25,25,0,0,1,.02,62H0V0H200V62h-.02A25,25,0,0,1,175,86Z" transform="translate(4576 760)"/>
+      <rect id="Rectángulo_6" data-name="Rectángulo 6" class="cls-7" width="150" height="90" transform="translate(4601 670)"/>
+      <circle id="Elipse_4" data-name="Elipse 4" class="cls-8" cx="6.5" cy="6.5" r="6.5" transform="translate(4794 777)"/>
+      <circle id="Elipse_5" data-name="Elipse 5" class="cls-9" cx="6.5" cy="6.5" r="6.5" transform="translate(4794 792)"/>
+      <rect id="Rectángulo_8" data-name="Rectángulo 8" class="cls-10" width="173" height="21" rx="10.5" transform="translate(4590 899)"/>
+      <g id="impresion">
+        <rect id="Rectángulo_7" data-name="Rectángulo 7" class="cls-7" width="150" height="70" transform="translate(4601 907)"/>
+        <rect id="Rectángulo_9" data-name="Rectángulo 9" class="cls-9" width="130" height="63" transform="translate(4611 907)"/>
+        <path id="Trazado_6" data-name="Trazado 6" class="cls-11" d="M4740.518,970c-13.649-6.505-36.536-8.109-51.364-14.067-9.471-3.806-19.488-11.149-28.293-15.54-7.482-3.731-14.689-8.964-19.8-9.023-11.958-.137-12.241,2.172-18.3,6.517C4609.688,947.263,4611,970,4611,970h129.518Z" transform="translate(0)"/>
+        <path id="Trazado_5" data-name="Trazado 5" class="cls-12" d="M4611,970c13.649-6.505,36.536-8.109,51.364-14.067,18.074-7.263,27.61-18.173,38.348-18.3,11.958-.137,15.75,6.182,21.806,10.527a54.808,54.808,0,0,1,18,21.838H4611Z"/>
+        <circle id="Elipse_6" data-name="Elipse 6" class="cls-13" cx="10" cy="10" r="10" transform="translate(4718 908)"/>
+        <path id="Trazado_7" data-name="Trazado 7" class="cls-7" d="M4675.126,923.093c-3.036-.791-6.541.159-8.035-.872-4.047-2.764,2.019-7.459,2.019-7.459s-.438-3.566,1.4-5.265c1.814-1.684,6.34-1.414,10.355.79,1.554.853,6.323-3.262,7.9-2.72,1.492.439.581-.009,1.4.439,2.885,1.549,2.282,5.09,2.282,5.09s5.9-.376,3.422,4.476c-.141.281-2.455.59-2.808,1.492-.364.936,1.061,2.8,0,4.031-1.237,1.439-3.638.221-5.792.532-1.755.257-3.278,1.993-4.827,2.808-5.266,2.779-7.322-3.34-7.322-3.34" transform="translate(-7 4)"/>
+      </g>
+      <text id="K-2" data-name="K" class="cls-14" transform="translate(4651 828)"><tspan x="0" y="0">K</tspan></text>
+    </g>
+    <g id="penacho" transform="translate(-2260 -1203)">
+      <path id="Trazado_1" data-name="Trazado 1" class="cls-15" d="M1691.711-504.348c153.6-90.3,145.793-8.918,145.793-8.918Z" transform="matrix(0.999, 0.052, -0.052, 0.999, 1354.343, 874.694)"/>
+      <path id="Trazado_2" data-name="Trazado 2" class="cls-15" d="M-1.729,72.175C166.236-84.879,154.578,53.258,154.578,53.258Z" transform="matrix(0.848, -0.53, 0.53, 0.848, 3017.209, 397.264)"/>
+      <path id="Trazado_3" data-name="Trazado 3" class="cls-15" d="M-.92,69.953C170.478-80.515,160.1,53.279,160.1,53.279Z" transform="matrix(0.259, -0.966, 0.966, 0.259, 2975.526, 440.758)"/>
+    </g>
+  </g>
+</svg>
