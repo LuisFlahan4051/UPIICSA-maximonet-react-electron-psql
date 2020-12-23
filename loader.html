@@ -27,12 +27,10 @@
             font-size: 40px;
             margin: 0px;
             color: #FF26A5;
-            -webkit-app-region: drag;
         }
 
         .logoKrissNet {
             width: 40%;
-            -webkit-app-region: drag;
         }
 
         .loaderBar {
@@ -46,7 +44,6 @@
             animation-fill-mode: forwards;
             justify-self: start;
             margin-bottom: 15px;
-            -webkit-app-region: drag;
         }
 
         @keyframes loaderAnimation {
@@ -68,5 +65,14 @@
     
     <div id="loaderBar" class="loaderBar"></div>
 </body>
-
+<!-- <script>
+    document.addEventListener('astilectron-ready')
+    function sendMessage() {
+        // This will send a message to GO
+        astilectron.sendMessage("hello", function (message) {
+            console.log("received " + message)
+        });       
+    }
+        
+</script> -->
 </html>

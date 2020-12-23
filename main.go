@@ -18,7 +18,7 @@ import (
 var (
 	port = "4051"
 	//urlGui = "http://localhost:" + port + "/"
-	urlGui    = "http://localhost:3000/" // React Server
+	urlGui    = "http://localhost:3000/" // React Server. Note: Change it too in ui/src/components/Login/Login.tsx line 25
 	graphDoor = "/graph"
 )
 
@@ -53,14 +53,13 @@ func newMux() *mux.Router {
 		AllowCredentials: true,
 		Debug:            true,
 	}).Handler) */
-
 	mux = addUIHandler(mux)
 	mux = api.AddGraphqlServer(port, graphDoor, mux)
 	return mux
 }
 
 func runServer(mux *mux.Router) {
-	fmt.Println("Serve working fine!")
+	fmt.Println("Server working fine!")
 	log.Fatal(http.ListenAndServe(":"+port, mux))
 }
 
@@ -87,6 +86,7 @@ func runElectron() {
 	}
 
 	var loaderWindow *astilectron.Window
+
 	if loaderWindow, err = app.NewWindow("loader.html", &astilectron.WindowOptions{
 		Center: astikit.BoolPtr(true),
 		Height: astikit.IntPtr(300),
@@ -95,6 +95,19 @@ func runElectron() {
 	}); err != nil {
 		loger.Fatal(fmt.Errorf("main: new window failed: %w", err))
 	}
+	loaderWindow.OnMessage(func(m *astilectron.EventMessage) interface{} {
+		// Unmarshal
+		var s string
+		m.Unmarshal(&s)
+
+		// Process message
+		if s == "hello" {
+			loaderWindow.Close()
+			return "world"
+		}
+		return nil
+	})
+
 	time.Sleep(1 * time.Second)
 	if err = loaderWindow.Create(); err != nil {
 		loger.Fatal(fmt.Errorf("main: creating window failed: %w", err))
@@ -102,35 +115,24 @@ func runElectron() {
 
 	time.Sleep(3 * time.Second)
 
-	var mainWindow *astilectron.Window
-	if mainWindow, err = app.NewWindow(urlGui, &astilectron.WindowOptions{
+	var loginWindow *astilectron.Window
+	if loginWindow, err = app.NewWindow(urlGui+"login", &astilectron.WindowOptions{
 		Center:    astikit.BoolPtr(true),
-		Height:    astikit.IntPtr(650),
-		MinHeight: astikit.IntPtr(600),
-		Width:     astikit.IntPtr(1200),
-		MinWidth:  astikit.IntPtr(1000),
+		Height:    astikit.IntPtr(600),
+		MinHeight: astikit.IntPtr(0),
+		Width:     astikit.IntPtr(500),
+		MinWidth:  astikit.IntPtr(0),
+		Frame:     astikit.BoolPtr(false),
 	}); err != nil {
 		loger.Fatal(fmt.Errorf("main: new window failed: %w", err))
 	}
-	if err = mainWindow.Create(); err != nil {
+	if err = loginWindow.Create(); err != nil {
 		loger.Fatal(fmt.Errorf("main: creating window failed: %w", err))
 	}
 
+	//loginWindow.OpenDevTools()
 	loaderWindow.Close()
-	mainWindow.OpenDevTools()
-
-	mainWindow.OnMessage(func(m *astilectron.EventMessage) interface{} {
-		// Unmarshal
-		var s string
-		m.Unmarshal(&s)
-
-		fmt.Println(s)
-		// Process message
-		if s == "hello" {
-			return "world"
-		}
-		return nil
-	})
+	//mainWindow.OpenDevTools()
 
 	app.Wait()
 }

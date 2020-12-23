@@ -3,7 +3,6 @@
 .Index-login{
     height: 100%;
     width: 100%;
-    -webkit-app-region: drag;
 }
 
 .shadow{
@@ -36,7 +35,6 @@
     flex-direction: column;
     align-items: center;
     background-color: $background-login;
-    -webkit-app-region: drag;
 }
 
 .login__logo{
@@ -173,7 +171,7 @@
     text-decoration: none;
     appearance: none;
     align-self: flex-end;
-    margin: 0px;
+    margin: 5px 0px 0px 0px;
     color: $color-green-menta;
     cursor: pointer;
 }

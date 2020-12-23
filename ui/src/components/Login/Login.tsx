@@ -3,8 +3,33 @@ import './Login.scss';
 import logo from '../../assets/media/img/miniLogoMaximoSVG.svg';
 import icon from '../../assets/media/img/Down-Row.svg';
 
+const remote = window.require('electron').remote
+const { BrowserWindow } = window.require('electron').remote;
+
+
 
 function Login(props: { users: React.ReactNodeArray; }) {
+    
+    function newWindow() {
+        const mainWindow = new BrowserWindow({
+            width: 1200,
+            minWidth: 1000,
+            height: 650,
+            minHeight: 600,
+            icon: 'logo192.png',
+            webPreferences: {
+                nodeIntegration: true,
+            }
+        })
+
+        mainWindow.loadURL('http://localhost:3000/');
+
+        mainWindow.webContents.openDevTools()
+
+        var currentWindow = remote.getCurrentWindow()
+        currentWindow.close()
+    }
+    
     const [handleSelect, setHandleSelect] = useState(false)
     const [userValue, setUserValue] = useState("")
 
@@ -21,6 +46,8 @@ function Login(props: { users: React.ReactNodeArray; }) {
     function cancel(e: { preventDefault: () => void; }) {
         e.preventDefault();
         console.log("Cancelar")
+        var currentWindow = remote.getCurrentWindow();
+        currentWindow.close();
     }
 
     function entry(e: { preventDefault: () => void;}) {
@@ -28,6 +55,7 @@ function Login(props: { users: React.ReactNodeArray; }) {
         console.log("Entrar")
         console.log(inputUser.current.value)
         console.log(inputPass.current.value)
+        newWindow()
     }
 
     return (
