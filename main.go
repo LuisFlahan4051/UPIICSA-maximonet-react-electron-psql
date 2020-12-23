@@ -16,8 +16,9 @@ import (
 )
 
 var (
-	port      = "4051"
-	urlGui    = "http://localhost:" + port + "/"
+	port = "4051"
+	//urlGui = "http://localhost:" + port + "/"
+	urlGui    = "http://localhost:3000/" // React Server
 	graphDoor = "/graph"
 )
 
@@ -69,7 +70,7 @@ func runElectron() {
 	// ASTILECTRON APP
 	app, err := astilectron.New(loger, astilectron.Options{
 		AppName:            "MaximoNet",
-		AppIconDefaultPath: "/src/logo.ico",
+		AppIconDefaultPath: "/src/logo.png",
 		AppIconDarwinPath:  "/src/logo.icns",
 		BaseDirectoryPath:  "dependencies",
 	})
@@ -103,9 +104,11 @@ func runElectron() {
 
 	var mainWindow *astilectron.Window
 	if mainWindow, err = app.NewWindow(urlGui, &astilectron.WindowOptions{
-		Center: astikit.BoolPtr(true),
-		Height: astikit.IntPtr(700),
-		Width:  astikit.IntPtr(700),
+		Center:    astikit.BoolPtr(true),
+		Height:    astikit.IntPtr(650),
+		MinHeight: astikit.IntPtr(600),
+		Width:     astikit.IntPtr(1200),
+		MinWidth:  astikit.IntPtr(1000),
 	}); err != nil {
 		loger.Fatal(fmt.Errorf("main: new window failed: %w", err))
 	}
@@ -114,6 +117,20 @@ func runElectron() {
 	}
 
 	loaderWindow.Close()
+	mainWindow.OpenDevTools()
+
+	mainWindow.OnMessage(func(m *astilectron.EventMessage) interface{} {
+		// Unmarshal
+		var s string
+		m.Unmarshal(&s)
+
+		fmt.Println(s)
+		// Process message
+		if s == "hello" {
+			return "world"
+		}
+		return nil
+	})
 
 	app.Wait()
 }
