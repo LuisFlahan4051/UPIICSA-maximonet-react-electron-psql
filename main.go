@@ -132,7 +132,6 @@ func runElectron() {
 
 	//loginWindow.OpenDevTools()
 	loaderWindow.Close()
-	//mainWindow.OpenDevTools()
 
 	app.Wait()
 }

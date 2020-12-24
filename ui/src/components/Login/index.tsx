@@ -28,17 +28,17 @@ function Index() {
 
     const { loading, error, data } = useQuery<UserData>(USERS_FROM_SUCURSAL)
     if (loading) return <p>Loading...</p>
-    if (error) return <p>Error :(</p>
+    if (error) return <p>Error in graph query</p>
     
-    var usersList: string[] = []
-    
+    var usersNicks: string[] = []
+
     data && data.users.map(User =>{
-        return usersList.push(User.nickname)
+        return usersNicks.push(User.nickname)
     })
     
     return (
         <div className="Index-login">
-            <Login users={usersList} />
+            <Login usersNicks={usersNicks} />
         </div>
     )
 }

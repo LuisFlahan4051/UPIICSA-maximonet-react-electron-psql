@@ -2,13 +2,31 @@ import React, { useState , useRef } from 'react';
 import './Login.scss';
 import logo from '../../assets/media/img/miniLogoMaximoSVG.svg';
 import icon from '../../assets/media/img/Down-Row.svg';
+import { gql, useQuery } from '@apollo/client';
+import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
+import setCurrentUser_action from '../../assets/redux/actions/currentUser';
+import currentUser_reducer from '../../assets/redux/reducers/currentUser';
 
 const remote = window.require('electron').remote
 const { BrowserWindow } = window.require('electron').remote;
 
+interface User {
+    id: string
+    nickname: string
+    admin: boolean
+    root: boolean
+}
 
+const VALIDATE_USER = gql`query validateUser{
+  validateUser(userData: "luisflahan", password: "4051"){
+    id
+    nickname
+    admin
+    root
+  }
+}`
 
-function Login(props: { users: React.ReactNodeArray; }) {
+function Login(props: { usersNicks: React.ReactNodeArray; }) {
     
     function newWindow() {
         const mainWindow = new BrowserWindow({
@@ -49,12 +67,36 @@ function Login(props: { users: React.ReactNodeArray; }) {
         var currentWindow = remote.getCurrentWindow();
         currentWindow.close();
     }
+    
+    const dispath = useDispatch()
 
     function entry(e: { preventDefault: () => void;}) {
         e.preventDefault();
         console.log("Entrar")
         console.log(inputUser.current.value)
         console.log(inputPass.current.value)
+        const defaultState = {
+            id: '',
+            user: '',
+            loggedin: false,
+            admin: false,
+            root: false,
+        }
+        currentUser_reducer(defaultState, setCurrentUser_action({ id: "1", user: "luisflahan", loggedin: true, admin: true, root: true }))
+
+        dispath(setCurrentUser_action({id: "1", user: "luisflahan", loggedin: true, admin: true, root: true }))
+
+        /*const dispath = useDispatch()
+        dispath(setCurrentUser_action({ id: "1", user: "luisflahan", loggedin: true, admin: false, root: false }))
+        const currentUser = useSelector((state: RootStateOrAny) => state.currentUser)
+        console.log(currentUser.root)
+
+        const { loading, error, data } = useQuery<User>(VALIDATE_USER)
+        if (loading) return <p>Loading...</p>
+        if (error) return <p>Error in graph query</p> */
+
+        
+
         newWindow()
     }
 
@@ -84,7 +126,7 @@ function Login(props: { users: React.ReactNodeArray; }) {
                         </div>
 
                         <div className="options_area" style={handleSelect ? {} : { display:'none' } }>
-                            {props.users.map((user) => 
+                            {props.usersNicks.map((user) => 
                                 <div 
                                 className="select__option" 
                                 onClick={() => {

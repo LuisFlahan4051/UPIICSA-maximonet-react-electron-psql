@@ -224,6 +224,7 @@ type Query {
   articles(id: ID, id_branch: Int, id_control: Int): [Article]
 
   users(id: ID, id_branch: Int): [User]
+  validateUser(userData: String, password: String): User
 }
 
 

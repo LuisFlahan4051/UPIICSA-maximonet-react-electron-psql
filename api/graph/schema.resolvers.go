@@ -149,6 +149,59 @@ func (r *queryResolver) Users(ctx context.Context, id *string, idBranch *int) ([
 	return users, err
 }
 
+func (r *queryResolver) ValidateUser(ctx context.Context, userData *string, password *string) (*model.User, error) {
+	db := database.Connect()
+	defer db.Close()
+
+	var scanUser model.User
+
+	if *userData != "" && *password != "" {
+		query := "SELECT * FROM users WHERE" +
+			"(nickname_user = $1 AND password_user = $2)" +
+			"OR" +
+			"(phone_user = $1 AND password_user = $2)" +
+			"OR" +
+			"(mail_user = $1 AND password_user = $2)"
+		err := db.QueryRow(query, userData, password).Scan(
+			&scanUser.ID,
+			&scanUser.Name,
+			&scanUser.LastName,
+			&scanUser.Nickname,
+			&scanUser.Mail,
+			&scanUser.Phone,
+			&scanUser.Password,
+			&scanUser.Admin,
+			&scanUser.Root,
+			&scanUser.RegistrationDate,
+			&scanUser.IDBranch,
+		)
+
+		if err != nil {
+			return nil, err
+		}
+
+		newUser := &model.User{
+			ID:               scanUser.ID,
+			Name:             scanUser.Name,
+			LastName:         scanUser.LastName,
+			Nickname:         scanUser.Nickname,
+			Mail:             scanUser.Mail,
+			Phone:            scanUser.Phone,
+			Password:         scanUser.Password,
+			Admin:            scanUser.Admin,
+			Root:             scanUser.Root,
+			RegistrationDate: scanUser.RegistrationDate,
+			IDBranch:         scanUser.IDBranch,
+		}
+
+		return newUser, err
+	}
+
+	var err error
+
+	return nil, err
+}
+
 // Mutation returns generated.MutationResolver implementation.
 func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
 
