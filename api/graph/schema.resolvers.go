@@ -122,6 +122,7 @@ func (r *queryResolver) Users(ctx context.Context, id *string, idBranch *int) ([
 			&scanUser.Password,
 			&scanUser.Admin,
 			&scanUser.Root,
+			&scanUser.Active,
 			&scanUser.RegistrationDate,
 			&scanUser.IDBranch,
 		)
@@ -139,6 +140,7 @@ func (r *queryResolver) Users(ctx context.Context, id *string, idBranch *int) ([
 			Password:         scanUser.Password,
 			Admin:            scanUser.Admin,
 			Root:             scanUser.Root,
+			Active:           scanUser.Active,
 			RegistrationDate: scanUser.RegistrationDate,
 			IDBranch:         scanUser.IDBranch,
 		}
@@ -172,6 +174,7 @@ func (r *queryResolver) ValidateUser(ctx context.Context, userData *string, pass
 			&scanUser.Password,
 			&scanUser.Admin,
 			&scanUser.Root,
+			&scanUser.Active,
 			&scanUser.RegistrationDate,
 			&scanUser.IDBranch,
 		)
@@ -190,6 +193,7 @@ func (r *queryResolver) ValidateUser(ctx context.Context, userData *string, pass
 			Password:         scanUser.Password,
 			Admin:            scanUser.Admin,
 			Root:             scanUser.Root,
+			Active:           scanUser.Active,
 			RegistrationDate: scanUser.RegistrationDate,
 			IDBranch:         scanUser.IDBranch,
 		}

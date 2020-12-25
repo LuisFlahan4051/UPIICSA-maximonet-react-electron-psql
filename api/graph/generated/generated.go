@@ -138,6 +138,7 @@ type ComplexityRoot struct {
 	}
 
 	User struct {
+		Active           func(childComplexity int) int
 		Admin            func(childComplexity int) int
 		ID               func(childComplexity int) int
 		IDBranch         func(childComplexity int) int
@@ -816,6 +817,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 
 		return e.complexity.Query.ValidateUser(childComplexity, args["userData"].(*string), args["password"].(*string)), true
 
+	case "User.active":
+		if e.complexity.User.Active == nil {
+			break
+		}
+
+		return e.complexity.User.Active(childComplexity), true
+
 	case "User.admin":
 		if e.complexity.User.Admin == nil {
 			break
@@ -1005,6 +1013,7 @@ type User {
   password: String!
   admin: Boolean
   root: Boolean
+  active: Boolean
   registrationDate: String
   id_branch: Int
 }
@@ -4558,6 +4567,38 @@ func (ec *executionContext) _User_root(ctx context.Context, field graphql.Collec
 	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
 }
 
+func (ec *executionContext) _User_active(ctx context.Context, field graphql.CollectedField, obj *model.User) (ret graphql.Marshaler) {
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	fc := &graphql.FieldContext{
+		Object:     "User",
+		Field:      field,
+		Args:       nil,
+		IsMethod:   false,
+		IsResolver: false,
+	}
+
+	ctx = graphql.WithFieldContext(ctx, fc)
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return obj.Active, nil
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		return graphql.Null
+	}
+	res := resTmp.(*bool)
+	fc.Result = res
+	return ec.marshalOBoolean2ᚖbool(ctx, field.Selections, res)
+}
+
 func (ec *executionContext) _User_registrationDate(ctx context.Context, field graphql.CollectedField, obj *model.User) (ret graphql.Marshaler) {
 	defer func() {
 		if r := recover(); r != nil {
@@ -6854,6 +6895,8 @@ func (ec *executionContext) _User(ctx context.Context, sel ast.SelectionSet, obj
 			out.Values[i] = ec._User_admin(ctx, field, obj)
 		case "root":
 			out.Values[i] = ec._User_root(ctx, field, obj)
+		case "active":
+			out.Values[i] = ec._User_active(ctx, field, obj)
 		case "registrationDate":
 			out.Values[i] = ec._User_registrationDate(ctx, field, obj)
 		case "id_branch":

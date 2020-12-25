@@ -182,6 +182,7 @@ type User struct {
 	Password         string  `json:"password"`
 	Admin            *bool   `json:"admin"`
 	Root             *bool   `json:"root"`
+	Active           *bool   `json:"active"`
 	RegistrationDate *string `json:"registrationDate"`
 	IDBranch         *int    `json:"id_branch"`
 }

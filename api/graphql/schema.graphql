@@ -46,6 +46,7 @@ type User {
   password: String!
   admin: Boolean
   root: Boolean
+  active: Boolean
   registrationDate: String
   id_branch: Int
 }

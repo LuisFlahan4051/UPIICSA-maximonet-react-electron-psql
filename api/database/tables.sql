@@ -36,6 +36,7 @@ CREATE TABLE users(
     password_user VARCHAR(50) NOT NULL,
     admin_user BOOLEAN DEFAULT TRUE,
     root_user BOOLEAN DEFAULT FALSE,
+    active_user BOOLEAN DEFAULT TRUE,
     registrationDate DATE,
     id_branch INT,
     PRIMARY KEY (id_user),
