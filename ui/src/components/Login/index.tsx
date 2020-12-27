@@ -70,17 +70,25 @@ function Index() {
     const dispath = useDispatch()
 
 
+
+
+
+
     const { loading, error, data } = useQuery<UserData>(USERS_FROM_SUCURSAL)
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error in graph query</p>
     
     var usersNicks: string[] = []
 
-    
-
     data && data.users.map(User =>{
         return usersNicks.push(User.nickname)
     })
+
+
+
+
+
+
 
     function cancel(e: { preventDefault: () => void; }) {
         e.preventDefault();
@@ -95,7 +103,7 @@ function Index() {
     function Entry(e: { preventDefault: () => void }) {
         e.preventDefault();
         console.log("Entrar")
-
+        //ARREGLAR ESTO
         var dataValidated = useQuery<UserValidated>(VALIDATE_USER, {
             variables: { userdata: inputUser.current.value, password: inputPass.current.value },
         })
