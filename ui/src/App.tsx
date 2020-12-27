@@ -1,4 +1,3 @@
-import React from 'react'
 import './App.scss'
 import Login  from './components/Login/index'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'

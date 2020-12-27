@@ -1,6 +1,6 @@
 export const SET_CURRENT_USER = 'SET_CURRENT_USER'
 
-function setCurrentUser_action(user: { id: String, user: String, loggedin: Boolean, admin: Boolean, root: Boolean,}){
+function setCurrentUser_action(user: { id: String, user: String, loggedin: Boolean, admin: Boolean, root: Boolean, active: Boolean}){
     return {
         type: SET_CURRENT_USER,
         id: user.id,
@@ -8,6 +8,7 @@ function setCurrentUser_action(user: { id: String, user: String, loggedin: Boole
         loggedin: user.loggedin,
         admin: user.admin,
         root: user.root,
+        active: user.active,
     }
 }
 

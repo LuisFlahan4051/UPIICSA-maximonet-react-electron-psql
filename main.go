@@ -121,8 +121,9 @@ func runElectron() {
 		Height:    astikit.IntPtr(600),
 		MinHeight: astikit.IntPtr(0),
 		Width:     astikit.IntPtr(500),
-		MinWidth:  astikit.IntPtr(0),
-		Frame:     astikit.BoolPtr(false),
+		//Width:    astikit.IntPtr(1000),
+		MinWidth: astikit.IntPtr(0),
+		Frame:    astikit.BoolPtr(false),
 	}); err != nil {
 		loger.Fatal(fmt.Errorf("main: new window failed: %w", err))
 	}

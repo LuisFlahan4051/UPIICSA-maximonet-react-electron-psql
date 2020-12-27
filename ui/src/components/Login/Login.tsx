@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Login.scss';
 import logo from '../../assets/media/img/miniLogoMaximoSVG.svg';
 import icon from '../../assets/media/img/Down-Row.svg';

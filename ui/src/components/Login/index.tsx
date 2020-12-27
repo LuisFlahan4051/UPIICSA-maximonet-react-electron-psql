@@ -1,12 +1,30 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import Login from './Login'
-import { useSelector, RootStateOrAny } from 'react-redux'
+import { useSelector, RootStateOrAny, useDispatch } from 'react-redux'
 import { gql, useQuery } from '@apollo/client'
+import swal from 'sweetalert2'
 
 const { BrowserWindow } = window.require('electron').remote
 const remote = window.require('electron').remote
 const currentWindow = remote.getCurrentWindow()
 
+const newWindow = () => {
+    const mainWindow = new BrowserWindow({
+        width: 1200,
+        minWidth: 1000,
+        height: 650,
+        minHeight: 600,
+        icon: 'logo192.png',
+        webPreferences: {
+            nodeIntegration: true,
+        }
+    })
+
+    mainWindow.loadURL('http://localhost:3000/')
+
+    mainWindow.webContents.openDevTools()
+    currentWindow.close()
+}
 
 /* Types needed for Apollo query */
 interface User {
@@ -23,23 +41,23 @@ const USERS_FROM_SUCURSAL = gql`query users{
     }
 }`
 
-const newWindow =  () => {
-    const mainWindow = new BrowserWindow({
-        width: 1200,
-        minWidth: 1000,
-        height: 650,
-        minHeight: 600,
-        icon: 'logo192.png',
-        webPreferences: {
-            nodeIntegration: true,
-        }
-    })
-
-    mainWindow.loadURL('http://localhost:3000/');
-
-    mainWindow.webContents.openDevTools()
-    currentWindow.close()
+interface UserValidated {
+    id: string
+    nickname: string
+    admin: boolean
+    root: boolean
+    active: boolean
 }
+
+const VALIDATE_USER = gql`query validateUser($userData: String, $password: String){
+  validateUser(userData: $userData password: $password){
+    id
+    nickname
+    admin
+    root
+    active
+  }
+}`
 
 function Index() {
     const inputUser = useRef(document.createElement("input"))
@@ -48,14 +66,17 @@ function Index() {
 
     /*--- get Redux data using hook from store. reducer current User is called ---*/ 
     const currentUser = useSelector((state: RootStateOrAny) => state.currentUser)
-    console.log(currentUser.root)
-    /*--- for set data we need another hook from react-redux ---*/
+    /*--- for set data we need dispatch hook from react-redux ---*/
+    const dispath = useDispatch()
+
 
     const { loading, error, data } = useQuery<UserData>(USERS_FROM_SUCURSAL)
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error in graph query</p>
     
     var usersNicks: string[] = []
+
+    
 
     data && data.users.map(User =>{
         return usersNicks.push(User.nickname)
@@ -71,23 +92,28 @@ function Index() {
         console.log("Directo al link")
     }
 
-    function entry(e: { preventDefault: () => void }) {
+    function Entry(e: { preventDefault: () => void }) {
         e.preventDefault();
         console.log("Entrar")
-        console.log(inputUser.current.value)
-        console.log(inputPass.current.value)
-        /* const defaultState = {
-            id: '',
-            user: '',
-            loggedin: false,
-            admin: false,
-            root: false,
-        }
-        currentUser_reducer(defaultState, setCurrentUser_action({ id: "1", user: "luisflahan", loggedin: true, admin: true, root: true }))
-    
-        dispath(setCurrentUser_action({id: "1", user: "luisflahan", loggedin: true, admin: true, root: true })) */
 
-        newWindow()
+        var dataValidated = useQuery<UserValidated>(VALIDATE_USER, {
+            variables: { userdata: inputUser.current.value, password: inputPass.current.value },
+        })
+
+        if (dataValidated.data?.nickname != ''){
+            //UPDATE THE STATE OF REDUX
+            dispath({ type: 'SET_CURRENT_USER', id: dataValidated.data?.id, user: dataValidated.data?.nickname, loggedin: true, admin: dataValidated.data?.admin, root: dataValidated.data?.root })
+            console.log(currentUser.id)
+            console.log(currentUser.user)
+
+            newWindow()
+        }else{
+            swal.fire({
+                icon: 'error',
+                title: '¡Error!',
+                text: 'No existe el usuario',
+            })
+        }
     }
     
     return (
@@ -99,7 +125,7 @@ function Index() {
             inputEntry={inputEntry}
             cancel={cancel}
             link={link}
-            entry={entry}
+            entry={Entry}
             />
         </div>
     )
