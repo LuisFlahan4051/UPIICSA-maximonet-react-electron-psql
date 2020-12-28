@@ -1,9 +1,7 @@
 package api
 
-//package main
-
 import (
-	"log"
+	"fmt"
 	"net/http"
 
 	"github.com/99designs/gqlgen/graphql/handler"
@@ -13,36 +11,36 @@ import (
 	"github.com/LuisFlahan4051/maximonet/api/graph/generated"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/websocket"
-	"github.com/rs/cors"
 )
 
-func main() {
-	router := mux.NewRouter()
-	// Add CORS middleware around every request
-	// See https://github.com/rs/cors for full option listing
-	router.Use(cors.AllowAll().Handler)
+func AddGraphqlServer(port string, graphDoor string, mux *mux.Router) *mux.Router {
 
-	/* router.Use(cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:8080"},
-		AllowCredentials: true,
-		Debug:            true,
-	}).Handler) */
+	graph := generated.NewExecutableSchema(generated.Config{
+		Resolvers: &graph.Resolver{},
+	})
 
-	srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{}}))
-	srv.AddTransport(&transport.Websocket{
+	graphServer := handler.NewDefaultServer(graph)
+	graphServer.AddTransport(&transport.Websocket{
 		Upgrader: websocket.Upgrader{
 			CheckOrigin: func(r *http.Request) bool {
-				// Check against your desired domains here
-				return r.Host == "http://localhost:3000"
+				switch r.Host {
+				case "http://localhost:3000": // ReactJS Development Server
+					break
+				case "http://localhost:" + port:
+					break
+				default:
+					return false
+				}
+				return true
 			},
 			ReadBufferSize:  1024,
 			WriteBufferSize: 1024,
 		},
 	})
 
-	router.Handle("/", playground.Handler("KrisstalNet", "/query"))
-	router.Handle("/query", srv)
+	mux.Handle(graphDoor, playground.Handler("GraphQL playground", graphDoor+"/query"))
+	mux.Handle(graphDoor+"/query", graphServer)
 
-	log.Println("connect to http://localhost:8000/ for GraphQL playground")
-	log.Fatal(http.ListenAndServe(":8000", router))
+	fmt.Printf("Server for Graph added, connect to  http://localhost:%s"+graphDoor+" for GraphQL playground\n", port)
+	return mux
 }

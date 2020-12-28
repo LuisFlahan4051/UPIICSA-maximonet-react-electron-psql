@@ -6,7 +6,6 @@ package graph
 import (
 	"context"
 	"fmt"
-	"log"
 
 	"github.com/LuisFlahan4051/maximonet/api/database"
 	"github.com/LuisFlahan4051/maximonet/api/graph/generated"
@@ -107,7 +106,7 @@ func (r *queryResolver) Users(ctx context.Context, id *string, idBranch *int) ([
 	}
 
 	if err != nil {
-		log.Fatal("Failed to execute query: ", err)
+		return nil, err
 	}
 
 	for rows.Next() {
@@ -127,7 +126,7 @@ func (r *queryResolver) Users(ctx context.Context, id *string, idBranch *int) ([
 			&scanUser.IDBranch,
 		)
 		if err != nil {
-			log.Fatal(err)
+			return nil, err
 		}
 
 		newUser := &model.User{

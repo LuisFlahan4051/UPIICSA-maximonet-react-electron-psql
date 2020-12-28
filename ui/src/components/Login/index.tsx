@@ -1,8 +1,11 @@
 import { useRef } from 'react'
 import Login from './Login'
 import { useSelector, RootStateOrAny, useDispatch } from 'react-redux'
-import { gql, useQuery } from '@apollo/client'
+import { gql, useQuery, useLazyQuery } from '@apollo/client'
 import swal from 'sweetalert2'
+import { client } from '../../assets/apollo/apolloClient'
+import { validate } from 'graphql'
+import { nextTick } from 'process'
 
 const { BrowserWindow } = window.require('electron').remote
 const remote = window.require('electron').remote
@@ -28,36 +31,33 @@ const newWindow = () => {
 
 /* Types needed for Apollo query */
 interface User {
-    nickname: string
-}
-
-interface UserData {
-    users: User[]
-}
-
-const USERS_FROM_SUCURSAL = gql`query users{
-    users{
-        nickname
-    }
-}`
-
-interface UserValidated {
     id: string
     nickname: string
+    password: string
     admin: boolean
     root: boolean
     active: boolean
 }
 
-const VALIDATE_USER = gql`query validateUser($userData: String, $password: String){
-  validateUser(userData: $userData password: $password){
-    id
-    nickname
-    admin
-    root
-    active
-  }
+interface UserData {
+    users: User[]
+}
+interface ValidateUser{
+    nickname: string 
+}
+
+const USERS_FROM_SUCURSAL = gql`query USERS_FROM_SUCURSAL($idBranch: Int){
+    users(id_branch: $idBranch){
+        nickname
+    }
 }`
+
+const VALIDATE_USER = gql`query VALIDATE_USER($userData: String, $password: String){
+    validateUser(userData: $userData, password: $password){
+        nickname
+    }
+}`
+
 
 function Index() {
     const inputUser = useRef(document.createElement("input"))
@@ -72,20 +72,36 @@ function Index() {
 
 
 
+    const usrval = useQuery<ValidateUser>(VALIDATE_USER, {
+        variables: { userData: "luisflahan", password: "4051"},
+    })
+    console.log(usrval.data)
+    console.log()
+    
 
 
-    const { loading, error, data } = useQuery<UserData>(USERS_FROM_SUCURSAL)
-    if (loading) return <p>Loading...</p>
-    if (error) return <p>Error in graph query</p>
+
+
+
+
+    const inputUsers = useQuery<UserData>(USERS_FROM_SUCURSAL,{
+        variables: {idBranch: 1}
+    })
+    if (inputUsers.loading) return <p>Loading...</p>
+    if (inputUsers.error) return <p>Error in graph query</p>
     
     var usersNicks: string[] = []
-
-    data && data.users.map(User =>{
+    inputUsers.data && inputUsers.data.users.map(User =>{
         return usersNicks.push(User.nickname)
     })
+    console.log(inputUsers)
+    console.log(usersNicks)
 
 
 
+    
+
+    
 
 
 
@@ -100,26 +116,32 @@ function Index() {
         console.log("Directo al link")
     }
 
+
+
     function Entry(e: { preventDefault: () => void }) {
         e.preventDefault();
         console.log("Entrar")
+        console.log()
         //ARREGLAR ESTO
-        var dataValidated = useQuery<UserValidated>(VALIDATE_USER, {
-            variables: { userdata: inputUser.current.value, password: inputPass.current.value },
-        })
-
-        if (dataValidated.data?.nickname != ''){
+        if (usrval.data !== undefined){
             //UPDATE THE STATE OF REDUX
-            dispath({ type: 'SET_CURRENT_USER', id: dataValidated.data?.id, user: dataValidated.data?.nickname, loggedin: true, admin: dataValidated.data?.admin, root: dataValidated.data?.root })
+            /* dispath({ 
+                type: 'SET_CURRENT_USER', 
+                id: data?.id, 
+                user: data?.nickname, 
+                loggedin: true, 
+                admin: data?.admin, 
+                root: data?.root, 
+            }) */
             console.log(currentUser.id)
             console.log(currentUser.user)
 
-            newWindow()
+            //newWindow()
         }else{
             swal.fire({
                 icon: 'error',
-                title: '¡Error!',
-                text: 'No existe el usuario',
+                title: '¡No existe el usuario!',
+                text: 'Verifique sus datos',
             })
         }
     }
