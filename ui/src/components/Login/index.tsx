@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import Login from './Login'
-import { useSelector, RootStateOrAny, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { gql, useQuery, useLazyQuery } from '@apollo/client'
 import swal from 'sweetalert2'
 
@@ -82,7 +82,7 @@ function Index() {
 
     /* REDUX STATE */
     /*--- get Redux data using hook from store. reducer current User is called ---*/ 
-    const currentUser = useSelector((state: RootStateOrAny) => state.currentUser)
+    //const currentUser = useSelector((state: RootStateOrAny) => state.currentUser)
     /*--- for set data we need dispatch hook from react-redux ---*/
     const dispath = useDispatch()
 

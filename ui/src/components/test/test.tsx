@@ -1,11 +1,4 @@
-import { useEffect, useRef } from 'react'
-import { useSelector, RootStateOrAny, useDispatch } from 'react-redux'
-import { gql, useQuery, useLazyQuery } from '@apollo/client'
-import swal from 'sweetalert2'
-import { client } from '../../assets/apollo/apolloClient'
-import { validate } from 'graphql'
-import { nextTick } from 'process'
-import { valueToObjectRepresentation } from '@apollo/client/utilities'
+import { gql, useLazyQuery } from '@apollo/client'
 
 interface ValidateUser {
     id: string
@@ -29,7 +22,7 @@ const VALIDATE_USER = gql`query VALIDATE_USER($userData: String, $password: Stri
 
 function Index() {
     
-    const [getValidation, { loading, error, data }] = useLazyQuery<ValidateUser>(VALIDATE_USER, {
+    const [getValidation, { data }] = useLazyQuery<ValidateUser>(VALIDATE_USER, {
         variables: { userData: "luisflahan", password: "4051" },
     })
     var validateUser = JSON.parse(JSON.stringify(data))

@@ -120,8 +120,8 @@ func runElectron() {
 		Center:    astikit.BoolPtr(true),
 		Height:    astikit.IntPtr(600),
 		MinHeight: astikit.IntPtr(0),
-		//Width:     astikit.IntPtr(500),
-		Width:    astikit.IntPtr(1000),
+		Width:     astikit.IntPtr(500),
+		//Width:    astikit.IntPtr(1000),
 		MinWidth: astikit.IntPtr(0),
 		Frame:    astikit.BoolPtr(false),
 	}); err != nil {
@@ -131,7 +131,7 @@ func runElectron() {
 		loger.Fatal(fmt.Errorf("main: creating window failed: %w", err))
 	}
 
-	loginWindow.OpenDevTools()
+	//loginWindow.OpenDevTools()
 	loaderWindow.Close()
 
 	app.Wait()
