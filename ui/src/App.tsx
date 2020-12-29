@@ -4,6 +4,10 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import Responsiva from './components/Responsiva/index'
 
 function App() {
+  
+
+
+
   return (
     <BrowserRouter>
       <div className="App">

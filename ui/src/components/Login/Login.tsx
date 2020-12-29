@@ -1,26 +1,27 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './Login.scss';
 import logo from '../../assets/media/img/miniLogoMaximoSVG.svg';
 import icon from '../../assets/media/img/Down-Row.svg';
 
+
+
 function Login(
     props: { 
         usersNicks: React.ReactNodeArray;
-        inputUser: any; 
-        inputPass: any; 
-        inputEntry: any;
         cancel: any;
         link: any;
         entry: any;
+        inputUser: any;
+        inputPass: any;
+        inputEntry: any;
     }) {
     
 
     const [handleSelect, setHandleSelect] = useState(false)
     const [userValue, setUserValue] = useState("")
     
-
-    props.inputUser.current.focus()
-
+    useEffect(() => props.inputUser.current?.focus()) // IF DONT USE useEffect could apears an error with querys and renders
+    
 
     return (
         <div className="login">
@@ -38,7 +39,7 @@ function Login(
                             ref={props.inputUser}
                             onKeyPress={(e: { key: any; preventDefault: () => void;}) => {
                             if (e.key === 'Enter') {
-                                e.preventDefault();
+                                e.preventDefault()
                                 props.inputPass.current?.focus()
                             }
                         }}/>
@@ -73,7 +74,7 @@ function Login(
                     ref={props.inputPass}
                     onKeyPress={(e: { key: any; preventDefault: () => void; }) => {
                         if (e.key === 'Enter') {
-                            e.preventDefault();
+                            e.preventDefault()
                             props.inputEntry.current?.focus()
                         }
                     }}/>
