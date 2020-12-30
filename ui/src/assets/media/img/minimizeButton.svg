@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="70" height="63.636" viewBox="0 0 70 63.636">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff126;
+      }
+
+      .cls-2 {
+        fill: #e6d800;
+      }
+    </style>
+  </defs>
+  <g id="minimizeButton" transform="translate(-1601 8)">
+    <ellipse id="Elipse_16" data-name="Elipse 16" class="cls-1" cx="35" cy="31.818" rx="35" ry="31.818" transform="translate(1601 -8)"/>
+    <g id="Grupo_1" data-name="Grupo 1" transform="translate(1614.818 10.59)">
+      <rect id="minIcon" class="cls-2" width="30" height="8" rx="3" transform="translate(16 21.213) rotate(-45)"/>
+      <rect id="minIcon-2" data-name="minIcon" class="cls-2" width="30" height="8" rx="3" transform="translate(21.213 26.87) rotate(-135)"/>
+    </g>
+  </g>
+</svg>

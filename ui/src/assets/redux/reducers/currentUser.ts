@@ -9,10 +9,11 @@ const defaultState = {
     active: false,
 }
 
-function currentUser_reducer(state = defaultState, userAction: { type: any; id: String; user: String; loggedin: Boolean; admin: Boolean; root: Boolean; active: Boolean;}) {
+function currentUser_reducer(state = defaultState, userAction: { type: String; id: String; user: String; loggedin: Boolean; admin: Boolean; root: Boolean; active: Boolean;}) {
     switch (userAction.type) {
         case SET_CURRENT_USER:
             return {
+                ...state,
                 id: userAction.id,
                 user: userAction.user,
                 loggedin: userAction.loggedin,

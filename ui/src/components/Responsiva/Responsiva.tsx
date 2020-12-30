@@ -1,4 +1,3 @@
-import React from 'react'
 import './Responsiva.scss'
 import logo from '../../assets/media/img/LogoV3.svg'
 
@@ -11,15 +10,21 @@ import products from '../../assets/media/img/Cola.svg'
 import articles from '../../assets/media/img/Limpieza.svg'
 import devices from '../../assets/media/img/Pantalla.svg'
 
-function Responsiva() {
+function Responsiva(props:{
+    actionPrint: any;
+    handlerBlur: any;
+    }) {
+
+
+
     return (
-        <div className="Responsiva">
+        <div className={props.handlerBlur ? 'ResponsivaBlur' : 'Responsiva'}>
 
             {/* ----------------OPTIONS--------------- */}
             {/* Se puso hasta arriba para hacer concordar las capas de sombra */}
             <nav className="options">
                 <div className="options__mainBtns-section">
-                    <button className="printBtn generalBtn"><img src={print} alt="Imprimir" /></button>
+                    <button className="printBtn generalBtn"><img src={print} alt="Imprimir" onClick={props.actionPrint}/></button>
                     <button className="saveBtn  generalBtn"><img src={save} alt="Guarda" /></button>
                     <button className="adminBtn generalBtn"><img src={tools} alt="Administrador" /></button>
                 </div>

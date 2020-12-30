@@ -18,7 +18,7 @@ import (
 var (
 	port = "4051"
 	//urlGui = "http://localhost:" + port + "/"
-	urlGui    = "http://localhost:3000/" // React Server. Note: Change it too in ui/src/components/Login/Login.tsx line 25
+	urlGui    = "http://localhost:3000/" // React Server. Note: Change it too in ui/src/components/Login/index.tsx line 25
 	graphDoor = "/graph"
 )
 
@@ -69,7 +69,7 @@ func runElectron() {
 	// ASTILECTRON APP
 	app, err := astilectron.New(loger, astilectron.Options{
 		AppName:            "MaximoNet",
-		AppIconDefaultPath: "/src/logo.png",
+		AppIconDefaultPath: "/src/logo.ico",
 		AppIconDarwinPath:  "/src/logo.icns",
 		BaseDirectoryPath:  "dependencies",
 	})
@@ -95,6 +95,7 @@ func runElectron() {
 	}); err != nil {
 		loger.Fatal(fmt.Errorf("main: new window failed: %w", err))
 	}
+	//Test comunication wiht javascript astilectron
 	loaderWindow.OnMessage(func(m *astilectron.EventMessage) interface{} {
 		// Unmarshal
 		var s string
@@ -115,23 +116,24 @@ func runElectron() {
 
 	time.Sleep(3 * time.Second)
 
-	var loginWindow *astilectron.Window
-	if loginWindow, err = app.NewWindow(urlGui+"login", &astilectron.WindowOptions{
+	var mainWindow *astilectron.Window
+	if mainWindow, err = app.NewWindow(urlGui, &astilectron.WindowOptions{
 		Center:    astikit.BoolPtr(true),
-		Height:    astikit.IntPtr(600),
+		Height:    astikit.IntPtr(680),
 		MinHeight: astikit.IntPtr(0),
-		Width:     astikit.IntPtr(500),
-		//Width:    astikit.IntPtr(1000),
-		MinWidth: astikit.IntPtr(0),
-		Frame:    astikit.BoolPtr(false),
+		//Width:     astikit.IntPtr(500),
+		Width:     astikit.IntPtr(1100),
+		MinWidth:  astikit.IntPtr(0),
+		Frame:     astikit.BoolPtr(false),
+		Resizable: astikit.BoolPtr(true),
 	}); err != nil {
 		loger.Fatal(fmt.Errorf("main: new window failed: %w", err))
 	}
-	if err = loginWindow.Create(); err != nil {
+	if err = mainWindow.Create(); err != nil {
 		loger.Fatal(fmt.Errorf("main: creating window failed: %w", err))
 	}
 
-	//loginWindow.OpenDevTools()
+	mainWindow.OpenDevTools()
 	loaderWindow.Close()
 
 	app.Wait()

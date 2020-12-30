@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="70" height="63.636" viewBox="0 0 70 63.636">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ff26a5;
+      }
+
+      .cls-2 {
+        fill: #e81c93;
+      }
+
+      .cls-3 {
+        filter: url(#cancelIcon);
+      }
+    </style>
+    <filter id="cancelIcon" x="18.318" y="15.611" width="32.142" height="32.142" filterUnits="userSpaceOnUse">
+      <feOffset dx="-1" dy="-1" input="SourceAlpha"/>
+      <feGaussianBlur result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="exitButton" transform="translate(-1872 1)">
+    <ellipse id="Elipse_14" data-name="Elipse 14" class="cls-1" cx="35" cy="31.818" rx="35" ry="31.818" transform="translate(1872 -1)"/>
+    <g class="cls-3" transform="matrix(1, 0, 0, 1, 1872, -1)">
+      <path id="cancelIcon-2" data-name="cancelIcon" class="cls-2" d="M25.685,30.489,15.8,20.6,5.908,30.489a3,3,0,0,1-4.243,0L1.1,29.928a3,3,0,0,1,0-4.243L10.993,15.8,1.1,5.908a3,3,0,0,1,0-4.243L1.665,1.1a3,3,0,0,1,4.243,0L15.8,10.993,25.685,1.1a3,3,0,0,1,4.243,0l.562.561a3,3,0,0,1,0,4.243L20.6,15.8l9.889,9.889a3,3,0,0,1,0,4.243l-.562.562a3,3,0,0,1-4.243,0Z" transform="translate(19.09 16.39)"/>
+    </g>
+  </g>
+</svg>

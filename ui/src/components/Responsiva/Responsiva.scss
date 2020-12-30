@@ -2,6 +2,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
+/* -----------------LOGIN BOX------------------*/
+
+.loginBox{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform: translateY(-100%);
+}
+
+.loginBoxFlex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+
+
 /*---------------VARIABLES---------------------*/
 $app-size-height: 100%;
 $app-size-width: 100%;
@@ -35,6 +57,24 @@ $main-input-size-width: 2.5cm;
     width: 100%;
 }
 
+.ResponsivaBlur{
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    display: grid;
+    height: $app-size-height;
+    width: $app-size-width;
+    grid-template-columns: $option-size auto;
+    grid-template-rows: $header-size calc(100% - #{$header-size});
+    grid-template-areas: 
+        "header header"
+        "options body"
+    ;
+
+    //border: 1px solid black;
+    background-color: $background-responsiva;
+    font-family: 'Merriweather', serif;
+}
+
 .Responsiva{
     display: grid;
     height: $app-size-height;
@@ -46,7 +86,7 @@ $main-input-size-width: 2.5cm;
         "options body"
     ;
 
-    border: 1px solid black;
+    //border: 1px solid black;
     background-color: $background-responsiva;
     font-family: 'Merriweather', serif;
 }
@@ -154,6 +194,7 @@ input::placeholder{
     .header__logo{
         margin-left: 1%;
         height: 90%;
+        -webkit-app-region: drag;
     }
 
 
@@ -165,6 +206,7 @@ input::placeholder{
         font-family: 'Libre Baskerville', serif;
         font-size: $text-size-sucursal;
         text-align: center;
+        -webkit-app-region: drag;
     }
 
 

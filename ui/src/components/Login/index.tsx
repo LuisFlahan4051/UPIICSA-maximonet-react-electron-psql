@@ -1,31 +1,14 @@
 import { useRef } from 'react'
 import Login from './Login'
-import { useDispatch } from 'react-redux'
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
 import { gql, useQuery, useLazyQuery } from '@apollo/client'
 import swal from 'sweetalert2'
+import setCurrentUser from '../../assets/redux/actions/currentUser'
 
 /* INTEGRATION WITH ELECTRON */
-const { BrowserWindow } = window.require('electron').remote
 const remote = window.require('electron').remote
 const currentWindow = remote.getCurrentWindow()
 
-const newWindow = () => {
-    const mainWindow = new BrowserWindow({
-        width: 1200,
-        minWidth: 1000,
-        height: 650,
-        minHeight: 600,
-        icon: 'logo192.png',
-        webPreferences: {
-            nodeIntegration: true,
-        }
-    })
-
-    mainWindow.loadURL('http://localhost:3000/')
-
-    mainWindow.webContents.openDevTools()
-    currentWindow.close()
-}
 
 /* Types needed for Apollo query */
 interface User {
@@ -60,6 +43,7 @@ const VALIDATE_USER = gql`query VALIDATE_USER($userData: String, $password: Stri
         password
         admin
         root
+        active
     }
 }`
 
@@ -71,8 +55,10 @@ const VALIDATE_USER = gql`query VALIDATE_USER($userData: String, $password: Stri
 
 
 
-function Index() {
-    
+function Index( props: {
+    setHandlerBlur: any;
+}) {
+
     /* REFERENCES OF INPUTS */
     const inputUser = useRef(document.createElement("input"))
     const inputPass = useRef(document.createElement("input"))
@@ -82,9 +68,9 @@ function Index() {
 
     /* REDUX STATE */
     /*--- get Redux data using hook from store. reducer current User is called ---*/ 
-    //const currentUser = useSelector((state: RootStateOrAny) => state.currentUser)
+    const currentUser = useSelector((state: RootStateOrAny) => state.currentUser)
     /*--- for set data we need dispatch hook from react-redux ---*/
-    const dispath = useDispatch()
+    const dispatch = useDispatch()
 
 
 
@@ -96,10 +82,10 @@ function Index() {
 
 
     /* APOLLO QUERY */
-    const [getValidation, { data }] = useLazyQuery<ValidateUser>(VALIDATE_USER, {
+    var [getValidation, { data }] = useLazyQuery<ValidateUser>(VALIDATE_USER, {
         variables: { userData: inputUser.current.value, password: inputPass.current.value},
     })
-
+    
 
 
     const usersValues = useQuery<UserData>(USERS_FROM_SUCURSAL,{
@@ -132,35 +118,39 @@ function Index() {
         console.log("Directo al link")
     }
 
+    
+
     function Entry(e: { preventDefault: () => void }) {
         e.preventDefault();
         console.log("Entrar")
 
         getValidation()
-        
-        if (data) { 
-            const validateUser = JSON.parse(JSON.stringify(data))
+        console.log(data)
 
+        if (data) {
+            const validateUser = JSON.parse(JSON.stringify(data))
+            console.log(validateUser)
             if (validateUser.validateUser !== null) {
                 //UPDATE THE STATE OF REDUX
-                dispath({
-                    type: 'SET_CURRENT_USER',
+                dispatch(setCurrentUser({
                     id: validateUser.validateUser.id,
                     user: validateUser.validateUser.nickname,
                     loggedin: true,
                     admin: validateUser.validateUser.admin,
                     root: validateUser.validateUser.root,
+                    active: validateUser.validateUser.active,
+                }))
+                console.log(currentUser)
+                props.setHandlerBlur(false)
+            } else {
+                swal.fire({
+                    icon: 'error',
+                    title: '¡No existe el usuario!',
+                    text: 'Verifique sus datos',
                 })
-
-                newWindow()
             }
-        }else{
+        } else {
             console.log("Intenta de nuevo, no se ejecutó a tiempo la consulta!")
-            swal.fire({
-                icon: 'error',
-                title: '¡No existe el usuario!',
-                text: 'Verifique sus datos',
-            })
         }
     }
 
