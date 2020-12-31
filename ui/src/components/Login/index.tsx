@@ -1,9 +1,7 @@
 import { useRef } from 'react'
 import Login from './Login'
-import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
 import { gql, useQuery, useLazyQuery } from '@apollo/client'
 import swal from 'sweetalert2'
-import setCurrentUser from '../../assets/redux/actions/currentUser'
 
 /* INTEGRATION WITH ELECTRON */
 const remote = window.require('electron').remote
@@ -57,6 +55,8 @@ const VALIDATE_USER = gql`query VALIDATE_USER($userData: String, $password: Stri
 
 function Index( props: {
     setHandlerBlur: any;
+    stateCurrentUser: any;
+    setStateCurrentUser: any;
 }) {
 
     /* REFERENCES OF INPUTS */
@@ -68,9 +68,10 @@ function Index( props: {
 
     /* REDUX STATE */
     /*--- get Redux data using hook from store. reducer current User is called ---*/ 
-    const currentUser = useSelector((state: RootStateOrAny) => state.currentUser)
+    //const currentUser = useSelector((state: RootStateOrAny) => state.currentUser)
+    
     /*--- for set data we need dispatch hook from react-redux ---*/
-    const dispatch = useDispatch()
+    //const dispatch = useDispatch()
 
 
 
@@ -127,30 +128,39 @@ function Index( props: {
         getValidation()
         console.log(data)
 
-        if (data) {
-            const validateUser = JSON.parse(JSON.stringify(data))
-            console.log(validateUser)
-            if (validateUser.validateUser !== null) {
-                //UPDATE THE STATE OF REDUX
-                dispatch(setCurrentUser({
-                    id: validateUser.validateUser.id,
-                    user: validateUser.validateUser.nickname,
-                    loggedin: true,
-                    admin: validateUser.validateUser.admin,
-                    root: validateUser.validateUser.root,
-                    active: validateUser.validateUser.active,
-                }))
-                console.log(currentUser)
-                props.setHandlerBlur(false)
+        if(inputUser.current.value !== "" && inputPass.current.value !== "") {
+            if (data) {
+                const validateUser = JSON.parse(JSON.stringify(data))
+                console.log(validateUser)
+                if (validateUser.validateUser !== null) {
+
+                    props.setStateCurrentUser({
+                        id: validateUser.validateUser.id,
+                        user: validateUser.validateUser.nickname,
+                        loggedin: true,
+                        admin: validateUser.validateUser.admin,
+                        root: validateUser.validateUser.root,
+                        active: validateUser.validateUser.active,
+                    })
+
+                    console.log(props.stateCurrentUser)
+                    props.setHandlerBlur(false)
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: '¡No existe el usuario!',
+                        text: 'Verifique sus datos',
+                    })
+                }
             } else {
-                swal.fire({
-                    icon: 'error',
-                    title: '¡No existe el usuario!',
-                    text: 'Verifique sus datos',
-                })
+                console.log("Intenta de nuevo, no se ejecutó a tiempo la consulta!")
             }
-        } else {
-            console.log("Intenta de nuevo, no se ejecutó a tiempo la consulta!")
+        }else{
+            swal.fire({
+                icon: 'warning',
+                title: '¡Ingrese bien los campos!',
+                text: 'Dejó un campo en blanco',
+            })
         }
     }
 

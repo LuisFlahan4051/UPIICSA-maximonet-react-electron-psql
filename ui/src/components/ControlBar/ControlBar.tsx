@@ -16,7 +16,7 @@ function ControlBar( props:{
             </div>
             <div className="buttonBox">
                 <img className="ctlButtons" src={minimizeButton} onClick={props.minimize} alt="min"/>
-                <img className="ctlButtons" src={resizeButton} alt="max"/>
+                <img className="ctlButtons" src={resizeButton} alt="max" onClick={props.maximize}/>
                 <img className="ctlButtons" src={closeButton} onClick={props.close} alt="cls"/>
             </div>
         </div>

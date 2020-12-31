@@ -1,0 +1,79 @@
+@import '../../../../Paleta-colores.scss';
+@import '../../Responsiva.scss';
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+
+/*---------------OPTIONS----------------*/
+.options{
+    grid-area: options;
+    width: $option-size;
+    height: 100%;
+    background-color: $color-ribbon;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0px 0px 6px #b3b3b341;
+}
+
+    .options__mainBtns-section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+        .printBtn{
+            border-color: $color-green-pastel;
+        }
+        .printBtn:hover{
+            background-color: $color-green-pastel;
+        }
+        
+        .saveBtn{
+            border-color: $color-green-primary;
+        }
+        .saveBtn:hover{
+            background-color: $color-green-primary;
+        }
+        
+        .adminBtn{
+            border-color: $color-green-menta;
+        }
+        .adminBtn:hover{
+            background-color: $color-green-menta;
+        }
+    /**/
+
+    .options__controlBtns-section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+        .paperBtn{
+            border-color: $color-pink-primary;
+        }
+        .paperBtn:hover{
+            background-color: $color-pink-primary;
+        }
+
+        .productsBtn{
+            border-color: $color-magent;
+        }
+        .productsBtn:hover{
+            background-color: $color-magent;
+        }
+
+        .articlesBtn{
+            border-color: $color-purple;
+        }
+        .articlesBtn:hover{
+            background-color: $color-purple;
+        }
+
+        .devicesBtn{
+            border-color: $color-cyan-primary;
+        }
+        .devicesBtn:hover{
+            background-color: $color-cyan-primary;
+        }
+    /**/
+/**/

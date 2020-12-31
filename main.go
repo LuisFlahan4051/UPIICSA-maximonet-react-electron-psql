@@ -133,7 +133,7 @@ func runElectron() {
 		loger.Fatal(fmt.Errorf("main: creating window failed: %w", err))
 	}
 
-	mainWindow.OpenDevTools()
+	//mainWindow.OpenDevTools()
 	loaderWindow.Close()
 
 	app.Wait()
