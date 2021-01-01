@@ -11,6 +11,7 @@ import devices from '../../../../assets/media/img/Pantalla.svg'
 function OptionsBar(props:{
     actionPrint: any;
     stateCurrentUser: any;
+    devTools: any;
 }) {
     if (props.stateCurrentUser.admin || props.stateCurrentUser.root){
         return (
@@ -18,7 +19,7 @@ function OptionsBar(props:{
                 <div className="options__mainBtns-section">
                     <button className="printBtn generalBtn"><img src={print} alt="Imprimir" onClick={props.actionPrint} /></button>
                     <button className="saveBtn  generalBtn"><img src={save} alt="Guarda" /></button>
-                    <button className="adminBtn generalBtn"><img src={tools} alt="Administrador" /></button>
+                    <button className="adminBtn generalBtn"><img src={tools} alt="Administrador" onClick={props.devTools}/></button>
                 </div>
                 <div className="options__controlBtns-section">
                     <button className="paperBtn    generalBtn"><img src={paper} alt="Control de Copias" /></button>

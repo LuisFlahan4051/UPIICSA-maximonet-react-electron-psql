@@ -1,6 +1,9 @@
 import './MainBody.scss'
 
-function MainBody() {
+function MainBody(props: {
+    handlerPaperCheck: any;
+    setHandlerPaperCheck: any;
+}) {
 
 
 
@@ -59,31 +62,31 @@ function MainBody() {
                     
                     <div className="copy__paper__checkbox">
                         <label>Ingreso de papel</label>
-                        <input type="checkbox" />
+                        <input className={props.handlerPaperCheck ? "input-checkbox-true" : "input-checkbox-false"} type="checkbox" onClick={() => props.setHandlerPaperCheck(!props.handlerPaperCheck)}/>
                     </div>
 
                     <div className="copy__section__display">
                         <div className="copy__section">
                             <div className="copy__content-topLeft input-card">
-                                <input type="text" />
+                                <input type="text" placeholder="0"/>
                                 <p>Copias B/N</p>
                             </div>
                             <div className="copy__content-topRight input-card">
-                                <input type="text" />
+                                <input type="text" placeholder="0"/>
                                 <p>Copias Color</p>
                             </div>
                             <div className="copy__content-bottomLeft input-card">
-                                <input type="text" />
+                                <input type="text" placeholder="0"/>
                                 <p>Impresiones B/N</p>
                             </div>
                             <div className="copy__content-bottomRight input-card">
-                                <input type="text" />
+                                <input type="text" placeholder="0"/>
                                 <p>Impresiones Color</p>
                             </div>
                         </div>
 
-                        <div className="copy__content-paper input-card">
-                            <input type="text" />
+                        <div className="copy__content-paper input-card" style={props.handlerPaperCheck ? {} : { display: 'none' }}>
+                            <input type="text" placeholder="0"/>
                             <p>Papel</p>
                         </div>
                     </div>
@@ -98,20 +101,36 @@ function MainBody() {
                 {/* -----------------Observations-------------------- */}
                 <div className="observations main-card">
                     <h2>Observaciones</h2>
+                    
                     <div className="observations__content input-card">
-                        <h3>Detalle</h3>
-                        <h3>Monto</h3>
-                        <div>
-                            <ul>
-                                <li>
-                                    <input type="text" />
+                        
+                        <div className="observations__display-titles">
+                            <h3 className="title-detail">Detalle</h3> 
+                            <h3 className="title-value">Monto</h3>
+                        </div>
+                        
+                        <div className="observations__display-observation">
+                            
+                            <div className="observations__observation">
+                                
+                                <div className="observation-input">
+                                    <input type="text" placeholder="Descripción"/>
+                                </div>
+                                
+                                <div className="observation-input-value">
                                     <label>$</label>
-                                    <input type="number" />
-                                </li>
-                            </ul>
+                                    <input type="number" placeholder="0"/>
+                                </div>
+
+                            </div>
+
                         </div>
                     </div>
-                    <button>+</button>
+
+                    <div className="observations__display-button">
+                        <button>+</button>
+                    </div>
+
                 </div>
 
 
@@ -122,10 +141,10 @@ function MainBody() {
 
                 {/* --------------------REPORTS------------------------ */}
                 <div className="btnsArea">
-                    <input type="checkbox" />
+                    <input type="checkbox" className="btnsArea__checkbox-false"/>
                     <label>Gadgets y dispositivos verificados.</label>
-                    <button>Reportar dispositivos faltantes respcto al turno anterior</button>
-                    <button>¿Escasea algún producto?</button>
+                    <button className="btnReportDevice">Reportar dispositivos faltantes respecto al turno anterior</button>
+                    <button className="btnReportProduct">¿Escasea algún producto?</button>
                 </div>
             </div>
             

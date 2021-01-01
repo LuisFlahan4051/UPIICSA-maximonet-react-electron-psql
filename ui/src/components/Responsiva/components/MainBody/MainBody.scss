@@ -184,46 +184,326 @@
                 display: flex;
                 width: 100%;
                 justify-content: flex-end;
+                align-items: center;
             }
+                .copy__paper__checkbox label{
+                    color: $color-green-menta;
+                }
+
+
+                //General
+                .copy__paper__checkbox input{
+                    box-shadow: 0px 0px 6px $shadow;
+                    border-radius: 4px;
+                    height: 15px;
+                    width: 15px;
+                    cursor: pointer;
+                    margin-right: 20px;
+                    margin-left: 10px;
+                }
+                //
+
+                .input-checkbox-false{
+                    background-color: $color-inputCard;
+                }
+
+                .input-checkbox-true{
+                    background-color: $color-cyan-primary;
+                }
             
             .copy__section__display{
                 display: flex;
+                //align-items: center;
             }
                 .copy__section{
                     display: grid;
                     grid-template-columns: 140px 130px;
-                    grid-template-rows: 90px 90px;
+                    grid-template-rows: 70px 70px;
                     grid-template-areas: 
                     "copiasBN copiasC"
                     "impresionesBN impresionesC";
-                    margin: 20px;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                    margin-bottom: 20px;
                 }
+                    //General
+                    .copy__section .input-card, .copy__content-paper{
+                        box-shadow: 0px 0px 6px $shadow;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                    }
+                    $space-between: 5px;
+                    //
 
                     .copy__content-topLeft{
                         border-top-left-radius: $standar-border-radius;
-                        margin-bottom: 10px;
-                        margin-right: 10px;
+                        margin-bottom: $space-between;
+                        margin-right: $space-between;
                     }
 
                     .copy__content-topRight{
                         border-top-right-radius: $standar-border-radius;
-                        margin-bottom: 10px;
-                        margin-left: 10px;
+                        margin-bottom: $space-between;
+                        margin-left: $space-between;
                     }
 
                     .copy__content-bottomLeft{
                         border-bottom-left-radius: $standar-border-radius;
-                        margin-top: 10px;
-                        margin-right: 10px;
+                        margin-top: $space-between;
+                        margin-right: $space-between;
                     }
 
                     .copy__content-bottomRight{
                         border-bottom-right-radius: $standar-border-radius;
-                        margin-top: 10px;
-                        margin-left: 10px;
+                        margin-top: $space-between;
+                        margin-left: $space-between;
                     }
+                    
+                    .copy__content-paper{
+                        width: 120px;
+                        height: 125px;
+                        margin-top: 10px;
+                        margin-right: 20px;
+                        border-radius: $standar-border-radius;
+                    }
+                        //General
+                        .copy__section input, .copy__content-paper input{
+                            height: 60%;
+                            width: 90%;
+                            text-align: center;
+                            font-size: $text-size-value-2;
+                        }
+                        //
+                        .copy__section input{
+                            margin-top: 5%;
+                        }
+                        .copy__content-paper input{
+                            margin-top: 10%;
+                        }
+
+                        //General
+                        .copy__section p, .copy__content-paper p{
+                            margin-bottom: 5%;
+                            width: 90%;
+                            border-top: 1px solid $text;
+                            text-align: center;
+                        }
+                        //
+                        .copy__content-paper p{
+                            margin-top: 15%;
+                        }
+                        
+                    /**/
                 /**/
             /**/    
+        /**/
+
+        .observations{
+            border-radius: $standar-border-radius;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }   
+            .observations__content{
+                border-radius: $standar-border-radius;
+                margin-right: 20px;
+                margin-bottom: 5px;
+                margin-left: 20px;
+                height: 150px;
+                width: 450px;
+            }
+                .observations__display-titles{
+                    width: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-top: 5px;
+                }
+                    //General
+                    .observations__display-titles h3{
+                        font-size: $text-size-label-1;
+                    }
+                    //
+                    .title-detail{
+                        margin-left: 30px;
+                    }
+
+                    .title-value{
+                        margin-right: 30px;
+                    }
+
+                /**/
+            .observations__display-observation{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 130px;
+                overflow: auto;
+            }
+            .options_area::-webkit-scrollbar{
+                -webkit-appearance: none;
+            }
+            .options_area::-webkit-scrollbar:vertical {
+                width:1px;
+            }
+                .observations__observation{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    border-bottom: 1px solid $text;
+                    width: 90%;
+                }
+                    //General
+                    .observations__observation div{
+                        margin-bottom: 5px;
+                    }
+                    //
+                    .observation-input{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        width: 85%;
+                    }
+                        .observation-input input{
+                            margin-left: 10px;
+                            margin-right: 5px;
+                            width: 100%;
+                        }
+
+                    .observation-input-value{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        border-left: 1px solid $text;
+                        width: 15%;
+                    }   
+                        .observation-input-value label{
+                            margin-left: 5px;
+                        }
+                        .observation-input-value input{
+                            width: 90%;
+                            text-align: center;
+                        }
+                    /**/ 
+                /**/
+            /**/
+            .observations__display-button{
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+                margin-bottom: 5px;
+            }
+                .observations__display-button button{
+                    border-style: solid;
+                    border-width: 1px;
+                    border-radius: 15px;
+                    height: 25px;
+                    width: 50px;
+                    outline: none;
+                    cursor: pointer;
+                    font-size: 20px;
+
+                    border-color: $color-cyan-primary;
+                    color: $color-cyan-primary;
+                    background-color: $background-login;
+
+                    margin-right: 20px;
+                }
+
+                .observations__display-button button:hover{
+                    border-color: $color-cyan-primary;
+                    color: $background-login;
+                    background-color: $color-cyan-primary;
+                    box-shadow: 0px 3px 6px $shadow;
+                }
+            /**/
+        /**/
+
+        .btnsArea{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+            //General
+            .btnsArea input{
+                box-shadow: 0px 0px 6px $shadow;
+                border-radius: 4px;
+                height: 20px;
+                width: 20px;
+                cursor: pointer;
+            }
+            //
+
+            .btnsArea__checkbox-false{
+                background-color: $color-inputCard;
+            }
+
+            .btnsArea__checkbox-true{
+                background-color: $color-cyan-primary;
+            }
+
+            
+            
+            .btnReportDevice{
+                border-style: solid;
+                border-width: 1px;
+                border-radius: 30px;
+                height: 50px;
+                width: 170px;
+                outline: none;
+                cursor: pointer;
+                font-size: 12px;
+
+                margin-right: 5px;
+                margin-left: 5px;
+
+                border-color: $color-pink-primary;
+                color: $color-pink-primary;
+                background-color: $background-login;
+
+            }
+
+            .btnReportDevice:hover{
+                border-color: $color-pink-primary;
+                color: $background-login;
+                background-color: $color-pink-primary;
+                box-shadow: 0px 3px 6px $shadow;
+            }
+
+
+
+            .btnReportProduct{
+                border-style: solid;
+                border-width: 1px;
+                border-radius: 30px;
+                height: 50px;
+                width: 100px;
+                outline: none;
+                cursor: pointer;
+                font-size: 12px;
+
+
+                margin-right: 5px;
+                
+                border-color: $color-cyan-primary;
+                color: $color-cyan-primary;
+                background-color: $background-login;
+
+            }
+
+            .btnReportProduct:hover{
+                border-color: $color-cyan-primary;
+                color: $background-login;
+                background-color: $color-cyan-primary;
+                box-shadow: 0px 3px 6px $shadow;
+            }
+            
         /**/
     /**/
 
