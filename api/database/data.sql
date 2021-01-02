@@ -6,18 +6,7 @@ INSERT INTO users (name_user, lastName_user, nickname_user, mail_user, phone_use
 ('Luis Fernando', 'Melendez Bustamante', 'luisflahan', 'luisflahan4051@gmail.com', '2461506175', '4051', 'TRUE', 'TRUE', 'TRUE', '17/11/2020', 1),
 ('user1', 'last name', 'user1', '', '', '123', 'FALSE', 'FALSE','TRUE', '17/11/2020', 1),
 ('', '', 'admin', '', '','123', 'FALSE', 'TRUE', 'TRUE', '17/11/2020', 2),
-( 'Root name',
-  'Root lastname',
-  'root',
-  'root@gmail.com',
-  '246',
-  '123',
-  'TRUE',
-  'TRUE',
-  'TRUE',
-  '17/11/2020',
-  1
-);
+( 'Root name','Root lastname','root','root@gmail.com','246','123','TRUE','TRUE','TRUE','17/11/2020',1);
 
 INSERT INTO products(name_product, details_product, basePrice_product) VALUES 
 ('Coca Cola 600', 'Refresco de cola de 600ml', 18.5),

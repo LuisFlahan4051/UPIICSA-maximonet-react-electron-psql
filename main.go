@@ -18,7 +18,7 @@ import (
 var (
 	port = "4051"
 	//urlGui = "http://localhost:" + port + "/"
-	urlGui    = "http://localhost:3000/" // React Server. Note: Change it too in ui/src/components/Login/index.tsx line 25
+	urlGui    = "http://localhost:3000/" // React Server.
 	graphDoor = "/graph"
 )
 
@@ -113,17 +113,17 @@ func runElectron() {
 	if err = loaderWindow.Create(); err != nil {
 		loger.Fatal(fmt.Errorf("main: creating window failed: %w", err))
 	}
-
+	loaderWindow.Show()
 	time.Sleep(3 * time.Second)
 
 	var mainWindow *astilectron.Window
 	if mainWindow, err = app.NewWindow(urlGui, &astilectron.WindowOptions{
 		Center:    astikit.BoolPtr(true),
 		Height:    astikit.IntPtr(680),
-		MinHeight: astikit.IntPtr(0),
+		MinHeight: astikit.IntPtr(670),
 		//Width:     astikit.IntPtr(500),
-		Width:     astikit.IntPtr(1100),
-		MinWidth:  astikit.IntPtr(0),
+		Width:     astikit.IntPtr(1150),
+		MinWidth:  astikit.IntPtr(1140),
 		Frame:     astikit.BoolPtr(false),
 		Resizable: astikit.BoolPtr(true),
 	}); err != nil {

@@ -30,7 +30,7 @@
     }
         /*------------------PRODUCTS----------------------*/
         .products{
-            width: 7cm;
+            width: 8cm;
             height: 95%;
             border-radius: $standar-border-radius;
             display: flex;
@@ -96,12 +96,13 @@
             /**/
 
             .products__content-inventory{
-                height: 57%;
+                height: 70%;
                 width: 90%;
                 border-bottom-left-radius: $standar-border-radius;
                 border-bottom-right-radius: $standar-border-radius;
                 box-shadow: 0px 0px 6px $shadow;
                 margin-top: 2px;
+                margin-bottom: 20px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -217,7 +218,7 @@
             }
                 .copy__section{
                     display: grid;
-                    grid-template-columns: 140px 130px;
+                    grid-template-columns: 140px 140px;
                     grid-template-rows: 70px 70px;
                     grid-template-areas: 
                     "copiasBN copiasC"
@@ -434,6 +435,9 @@
             .btnsArea input{
                 box-shadow: 0px 0px 6px $shadow;
                 border-radius: 4px;
+                border-style: solid;
+                border-width: 1px;
+                border-color: $color-cyan-primary;
                 height: 20px;
                 width: 20px;
                 cursor: pointer;
@@ -519,5 +523,244 @@
         grid-area: section3;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        height: 100%;
+        width: 100%;
     }
+        .initialCount{
+            border-radius: $standar-border-radius;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .initialCount__content{
+            height: 75px;
+            width: 150px;
+            margin-top: 10px;
+            margin-right: 20px;
+            margin-bottom: 10px;
+            margin-left: 20px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0px 0px 6px $shadow;
+            border-radius: $standar-border-radius;
+        }
+            .initialCount__input{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                height: 80%;
+            }
+                .initialCount__input label{
+                    text-align: center;
+                    font-size: $text-size-value-2;
+                }
+
+                .initialCount__input input{
+                    height: 60%;
+                    width: 70%;
+                    text-align: center;
+                    font-size: $text-size-value-2;
+                }
+            /**/
+
+            .initialCount__content p{
+                margin-bottom: 5%;
+                width: 90%;
+                border-top: 1px solid $text;
+                text-align: center;
+            }
+
+        /**/
+
+        .arqueo{
+            border-radius: $standar-border-radius;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            width: 270px;
+        }
+            .arqueo__section-inventory{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 100%;
+            }
+                .inventory__display-inputs{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-between;
+                    width: 50%;
+                }
+                .coins{
+                    border-right: 1px solid $text;
+                }
+
+                    .inventory__input{
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: flex-end;
+                        width: 100%;
+                        margin-top: 2px;
+                        margin-bottom: 2px;
+                    }   
+                        //General
+                        .inventory__input label{
+                            width: 30%;
+                        }
+
+                        .arqueo__value{
+                            border-radius: $standar-border-radius;
+                            box-shadow: 0px 3px 6px $shadow;
+                            width: 50%;
+                            height: 20px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                            .inventory__input input{
+                                width: 85%;
+                            }
+                        /**/
+                        .coins .arqueo__value{
+                            margin-right: 5%;
+                        }
+                        .bills .arqueo__value{
+                            margin-right: 15%;
+                        }
+                    /**/
+                /**/
+            /**/
+            .arqueo__section-count{
+                border-top: 1px solid $text;
+                margin-top: 7px;
+                margin-bottom: 7px;
+                display: flex;
+                flex-direction: row;
+                width: 90%;
+            }
+                .count__leftDisplay{
+                    display: flex;
+                    flex-direction: column;
+                    width: 50%;
+                    align-items: flex-end;
+                    justify-content: space-between;
+                }
+                    .count__leftDisplay div{
+                        display: flex;
+                        flex-direction: row;
+                        margin-right: 30px;
+                        margin-top: 5px;
+                        //margin-bottom: 5px;
+                    }
+                        .count__leftDisplay div p{
+                            margin-left: 20px;
+                        }
+                    /**/
+                    .count__leftDisplay p{
+                        margin-right: 5px;
+                        margin-top: 5px;
+                        //margin-bottom: 5px;
+                    }
+                /**/
+
+                .count__rightDisplay{
+                    display: flex;
+                    flex-direction: column;
+                    width: 50%;
+                    justify-content: space-between;
+                }
+                    .count__rightDisplay div{
+                        display: flex;
+                        flex-direction: row;
+                        margin-left: 5px;
+                        margin-top: 5px;
+                        //margin-bottom: 5px;
+                    }
+                        .count__rightDisplay div p{
+                            margin-left: 20px;
+                        }
+                    /**/
+
+                    .count__rightDisplay p{
+                        margin-left: 5px;
+                        margin-top: 5px;
+                        //margin-bottom: 5px;
+                    }
+                /**/
+            /**/
+
+        .mainCount{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: $standar-border-radius;
+            width: 270px;
+            height: 140px;
+        }
+            .mainCount__content{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                border-radius: $standar-border-radius;
+                width: 90%;
+                height: 78%;
+            }
+                .mainCount__labels-display{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    justify-content: center;
+                    width: 50%;
+                    height: 100%;
+                }
+                    .mainCount__labels-display p{
+                        font-size: 13px;
+                        margin-top: 5px;
+                        width: 80%;
+                    }
+
+                    .labelResalted{
+                        font-weight: bold;
+                    }
+                /**/
+
+                .mainCount__values-display{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    width: 50%;
+                    height: 100%;
+                    text-align: center;
+                }
+                    .mainCount__values-display p{
+                        font-size: 13px;
+                        margin-top: 5px;
+                        width: 80%;
+                    }
+
+                    .valueResalted-2{
+                        color: $color-pink-primary;
+                    }
+
+                    .valueResalted{
+                        font-weight: bold;
+                        border-top: 1px solid $text;
+                        width: 80%;
+                    }
+
+
+                /**/
+            /**/
+        /**/
+    /**/
 /**/

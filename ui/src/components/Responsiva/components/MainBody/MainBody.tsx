@@ -158,8 +158,10 @@ function MainBody(props: {
                 {/* -------------------INITIAL COUNT---------------------- */}
                 <div className="initialCount main-card">
                     <div className="initialCount__content input-card">
-                        <label>$</label>
-                        <input type="number"/>
+                        <div className="initialCount__input">
+                            <label>$</label>
+                            <input type="number" />
+                        </div>
                         <p>Caja Inicial</p>
                     </div>
                 </div>
@@ -168,64 +170,68 @@ function MainBody(props: {
 
                 {/* ------------------------ARQUEO--------------------------- */}
                 <div className="arqueo main-card">
+
                     <h2>Arqueo</h2>
+                    
                     <div className="arqueo__section-inventory">
-                        <div>
-                            <ul>
-                                <li>
-                                    <label>$0.5</label><div className="arqueo__content input-card"><input type="number"/></div>
-                                </li>
-                                <li>
-                                    <label>$1</label><div className="arqueo__content input-card"><input type="number"/></div>
-                                </li>
-                                <li>
-                                    <label>$2</label><div className="arqueo__content input-card"><input type="number"/></div>
-                                </li>
-                                <li>
-                                    <label>$5</label><div className="arqueo__content input-card"><input type="number"/></div>
-                                </li>
-                                <li>
-                                    <label>$10</label><div className="arqueo__content input-card"><input type="number"/></div>
-                                </li>
-                                <li>
-                                    <label>$20</label><div className="arqueo__content input-card"><input type="number"/></div>
-                                </li>
-                            </ul>
+                        <div className="inventory__display-inputs coins">
+                            
+                            <div className="inventory__input">
+                                <label>$0.5</label><div className="arqueo__value input-card"><input type="number"/></div>
+                            </div>
+                            <div className="inventory__input">
+                                <label>$1</label><div className="arqueo__value input-card"><input type="number"/></div>
+                            </div>
+                            <div className="inventory__input">
+                                <label>$2</label><div className="arqueo__value input-card"><input type="number"/></div>
+                            </div>
+                            <div className="inventory__input">
+                                <label>$5</label><div className="arqueo__value input-card"><input type="number"/></div>
+                            </div>
+                            <div className="inventory__input">
+                                <label>$10</label><div className="arqueo__value input-card"><input type="number"/></div>
+                            </div>
+                            <div className="inventory__input">
+                                <label>$20</label><div className="arqueo__value input-card"><input type="number"/></div>
+                            </div>
+                            
                         </div>
-                        <div>
-                            <ul>
-                                <li>
-                                    <label>$20</label><div className="arqueo__content input-card"><input type="number"/></div>
-                                </li>
-                                <li>
-                                    <label>$50</label><div className="arqueo__content input-card"><input type="number"/></div>
-                                </li>
-                                <li>
-                                    <label>$100</label><div className="arqueo__content input-card"><input type="number"/></div>
-                                </li>
-                                <li>
-                                    <label>$200</label><div className="arqueo__content input-card"><input type="number"/></div>
-                                </li>
-                                <li>
-                                    <label>$500</label><div className="arqueo__content input-card"><input type="number"/></div>
-                                </li>
-                                <li>
-                                    <label>$1000</label><div className="arqueo__content input-card"><input type="number"/></div>
-                                </li>
-                            </ul>
+
+                        <div className="inventory__display-inputs bills">
+                            
+                            <div className="inventory__input">
+                                <label>$20</label><div className="arqueo__value input-card"><input type="number"/></div>
+                            </div>
+                            <div className="inventory__input">
+                                <label>$50</label><div className="arqueo__value input-card"><input type="number"/></div>
+                            </div>
+                            <div className="inventory__input">
+                                <label>$100</label><div className="arqueo__value input-card"><input type="number"/></div>
+                            </div>
+                            <div className="inventory__input">
+                                <label>$200</label><div className="arqueo__value input-card"><input type="number"/></div>
+                            </div>
+                            <div className="inventory__input">
+                                <label>$500</label><div className="arqueo__value input-card"><input type="number"/></div>
+                            </div>
+                            <div className="inventory__input">
+                                <label>$1000</label><div className="arqueo__value input-card"><input type="number"/></div>
+                            </div>
+                        
                         </div>
                     </div>
 
 
 
                     {/* -----------------------COUNT--------------------------- */}
-                    <div className="aqueo__section-count">
-                        <div>
+                    <div className="arqueo__section-count">
+
+                        <div className="count__leftDisplay">
                             <div><p>Efectivo:</p><p>$0</p></div>
                             <p>Observaciones:</p>
                             <p>Total:</p>
                         </div>
-                        <div>
+                        <div className="count__rightDisplay">
                             <div><p>Sobre:</p><p>$0</p></div>
                             <p>$0</p>
                             <p>$0</p>
@@ -239,17 +245,17 @@ function MainBody(props: {
                 <div className="mainCount resalted-card">
                     <h2>Contadores</h2>
                     <div className="mainCount__content input-card">
-                        <div>
+                        <div className="mainCount__labels-display">
                             <p>Copias:</p>
                             <p>Productos:</p>
                             <p>Recaudación:</p>
-                            <p>Total:</p>
+                            <div className="labelResalted">Total:</div>
                         </div>
-                        <div>
+                        <div className="mainCount__values-display">
                             <p>$0</p>
                             <p>$0</p>
-                            <p>$0</p>
-                            <div><p>$0</p></div>
+                            <p className="valueResalted-2">$0</p>
+                            <div className="valueResalted">$0</div>
                         </div>
                     </div>
                 </div>

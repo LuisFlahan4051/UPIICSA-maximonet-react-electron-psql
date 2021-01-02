@@ -21,12 +21,12 @@ function Index() {
 
     function maximize() {
         currentWindow.maximize()
-        setHandleMaximizeBtn(!handleMaximizeBtn)
+        setHandleMaximizeBtn(currentWindow.isMaximized())
     }
 
     function unmaximize() {
         currentWindow.unmaximize()
-        setHandleMaximizeBtn(!handleMaximizeBtn)
+        setHandleMaximizeBtn(currentWindow.isMaximized())
     }
 
     return (
@@ -34,7 +34,7 @@ function Index() {
             <ControlBar 
             close={close}
             minimize={minimize}
-            maximize={handleMaximizeBtn ? maximize : unmaximize} // This don't works in the current version of electron!
+                maximize={handleMaximizeBtn ? unmaximize : maximize} // This don't works in the current version of electron!
             />
         </div>
     );

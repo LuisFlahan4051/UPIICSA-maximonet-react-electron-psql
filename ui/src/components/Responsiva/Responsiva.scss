@@ -98,6 +98,16 @@ $main-input-size-width: 2.5cm;
     box-shadow: 0px 3px 6px $shadow;
 }
 
+.resalted-card{
+    background-color: $color-pink-primary;
+    box-shadow: 0px 3px 6px $shadow;
+}
+
+.resalted-card h2{
+    color: $text-target-title-white;
+    margin: 0px;
+}
+
 .input-card{
     background-color: $color-inputCard;
 }

@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import Login from './Login'
-import { gql, useQuery, useLazyQuery } from '@apollo/client'
+import { gql, useQuery } from '@apollo/client'
 import swal from 'sweetalert2'
 
 /* INTEGRATION WITH ELECTRON */
@@ -10,7 +10,14 @@ const currentWindow = remote.getCurrentWindow()
 
 /* Types needed for Apollo query */
 interface User {
+    id: string
     nickname: string
+    phone: string
+    mail: string
+    password: string
+    admin: boolean
+    root: boolean
+    active: boolean
 }
 
 interface UserData {
@@ -20,12 +27,19 @@ interface UserData {
 
 const USERS_FROM_SUCURSAL = gql`query USERS_FROM_SUCURSAL($idBranch: Int){
     users(id_branch: $idBranch){
+        id
         nickname
+        phone
+        mail
+        password
+        admin
+        root
+        active
     }
 }`
 
 
-interface ValidateUser {
+/* interface ValidateUser {
     id: string
     nickname: string
     password: string
@@ -43,7 +57,7 @@ const VALIDATE_USER = gql`query VALIDATE_USER($userData: String, $password: Stri
         root
         active
     }
-}`
+}` */
 
 
 
@@ -82,10 +96,10 @@ function Index( props: {
 
 
 
-    /* APOLLO QUERY */
-    var [getValidation, { data }] = useLazyQuery<ValidateUser>(VALIDATE_USER, {
+    /* APOLLO TRIGER QUERY  */
+    /* var [getValidation, { data }] = useLazyQuery<ValidateUser>(VALIDATE_USER, {
         variables: { userData: inputUser.current.value, password: inputPass.current.value},
-    })
+    }) */
     
 
 
@@ -95,15 +109,19 @@ function Index( props: {
     if (usersValues.loading) return <p>Loading...</p>
     if (usersValues.error) return <p>Error in graph query</p>
     
+    //For the select area
     var usersNicks: string[] = []
     usersValues.data && usersValues.data.users.map(User =>{
         return usersNicks.push(User.nickname)
     })
 
+    //For validation
+    var usersData: User[] = []
 
+    usersValues.data && usersValues.data.users.map(User => {
+        return usersData.push({id: User.id,nickname: User.nickname, phone: User.phone, mail: User.mail, password: User.password, admin: User.admin, root: User.root, active: User.active})
+    })
 
-
-    
 
     
 
@@ -122,14 +140,17 @@ function Index( props: {
     
 
     function Entry(e: { preventDefault: () => void }) {
-        e.preventDefault();
+        e.preventDefault()
         console.log("Entrar")
-
-        getValidation()
-        console.log(data)
+        
+        //Using useLazyQuery
+        /* getValidation()
+        console.log(data) */
 
         if(inputUser.current.value !== "" && inputPass.current.value !== "") {
-            if (data) {
+            
+            //Using useLazyQuery
+            /* if (data) {
                 const validateUser = JSON.parse(JSON.stringify(data))
                 console.log(validateUser)
                 if (validateUser.validateUser !== null) {
@@ -154,7 +175,49 @@ function Index( props: {
                 }
             } else {
                 console.log("Intenta de nuevo, no se ejecutó a tiempo la consulta!")
+            } */
+
+
+            //usingValidation Javascript
+            var res = usersData.map((User) => { 
+                if ((User.nickname === inputUser.current.value && User.password === inputPass.current.value) || (User.phone === inputUser.current.value && User.password === inputPass.current.value) || (User.mail === inputUser.current.value && User.password === inputPass.current.value)){
+                    return true
+                }
+            })
+
+            var aval = () => {
+                for (let i = 0; i <= res.length; i++){
+                    if(res[i] === true){
+                        return true
+                    }
+                }
             }
+
+            if (aval()){
+                usersData.map((User) => {
+                    if ((User.nickname === inputUser.current.value) || (User.phone === inputUser.current.value) || (User.mail === inputUser.current.value)){
+                        props.setStateCurrentUser({
+                            id: User.id,
+                            user: User.nickname,
+                            loggedin: true,
+                            admin: User.admin,
+                            root: User.root,
+                            active: User.active,
+                        })
+
+                        props.setHandlerBlur(false)
+                    }
+                    return null
+                })
+                
+            }else{
+                swal.fire({
+                    icon: 'error',
+                    title: '¡No existe el usuario!',
+                    text: 'Verifique sus datos',
+                })
+            }
+
         }else{
             swal.fire({
                 icon: 'warning',
