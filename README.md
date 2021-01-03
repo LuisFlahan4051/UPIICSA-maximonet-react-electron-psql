@@ -1,6 +1,6 @@
-# KRISSTALNET
+# MAXIMONET
 
-Punto de ventas para la sucursal KrisstalNet.
+Punto de ventas para la sucursal MáximoNet.
 
 ## Enfoque
 
@@ -75,7 +75,7 @@ Luego ejecutar el compilador nativo de Golang:
 ```
 > go build -ldflags "-H windowsgui" -o main.exe
 ```
-Nota: talvez se tenga que cambiar dentro de main.go el puerto de desarrollo 3000 por el puerto de ejecución 4051
+**Nota:** talvez se tenga que cambiar dentro de main.go el puerto de desarrollo 3000 por el puerto de ejecución **4051**
 
 Para finalizar se tiene que crear la base de datos maximonet_db junto con el usuario luisflahan. Los scripts para esto se sitúan en la carpeta /maximonet/api/database.
 
@@ -109,7 +109,7 @@ Instalación de PostgreSQL en Ubuntu:
 
 Para crear el usuario:
 
-Nota: Meter la contraseña "4051" porque el archivo de conexión está escrito con la misma.
+**Nota:** Meter la contraseña "**4051**" porque el archivo de conexión está escrito con la misma.
 ```
 > sudo -iu postgres createuser --interactive -P luisflahan
 Ingrese la contraseña para el nuevo rol:
@@ -118,9 +118,9 @@ Ingrésela nuevamente:
 
 > createdb luisflahan -O luisflahan
 ```
-¡Listo! Ahora, para ejecutar los scripts ingresamos lo siguiente:
+**¡Listo!** Ahora, para ejecutar los scripts ingresamos lo siguiente:
 
-Nota: Seguimos situados con la terminal en /maximonet
+**Nota:** Seguimos situados con la terminal en /maximonet
 ```
 > sudo -iu postgres psql
 psql (13)
@@ -146,13 +146,13 @@ Notas:
 --
 El servidor de PostgreSQL se instala automaticamente en el puerto 5432.
 
-El hostname: localhost
+El hostname: **localhost**
 
-El usuario: luisflahan
+El usuario: **luisflahan**
 
-La contraseña: 4051
+La contraseña: **4051**
 
-BD: maximonet_db
+BD: **maximonet_db**
 
 En caso de cambiar las especificaciones, se tiene que cambiar dentro del archivo /maximonet/api/database/database.go
 
