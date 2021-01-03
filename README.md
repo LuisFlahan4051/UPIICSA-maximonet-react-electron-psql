@@ -75,10 +75,15 @@ Luego ejecutar el compilador nativo de Golang:
 Nota: talvez se tenga que cambiar dentro de main.go el puerto de desarrollo 3000 por el puerto de ejecución 4051
 
 Para finalizar se tiene que crear la base de datos maximonet_db junto con el usuario luisflahan. Los scripts para esto se sitúan en la carpeta /maximonet/api/database.
+
 Para crear la base de datos y el usuario en windows se tiene que hacer mediante el administrador gráfico pgAdmin que se instala por defecto al instalar PostgreSQL:
 
+AddImg
+
 Para crear el usuario y la base de datos en linux es más sencillo ya que contamos con la herramienta psql para ejecutar scripts desde el terminal. 
+
 Se pueden seguir las siguientes líneas:
+
 Instalación de PostgreSQL en fedora 33:
 ```
 > sudo dnf install -y https://download.postgresql.org/pub/repos/yum/reporpms/F-33-x86_64/pgdg-fedora-repo-latest.noarch.rpm
@@ -95,6 +100,7 @@ Instalación de PostgreSQL en Ubuntu:
 ```
 
 Para crear el usuario:
+
 Nota: Meter la contraseña "4051" porque el archivo de conexión está escrito con la misma.
 ```
 > sudo -iu postgres createuser --interactive -P luisflahan
@@ -105,6 +111,7 @@ Ingrésela nuevamente:
 > createdb luisflahan -O luisflahan
 ```
 ¡Listo! Ahora, para ejecutar los scripts ingresamos lo siguiente:
+
 Nota: Seguimos situados con la terminal en /maximonet
 ```
 > sudo -iu postgres psql
@@ -128,10 +135,15 @@ Ejecutamos lo siguiente:
 
 Notas:
 El servidor de PostgreSQL se instala automaticamente en el puerto 5432.
+
 El hostname: localhost
+
 El usuario: luisflahan
+
 La contraseña: 4051
+
 BD: maximonet_db
+
 En caso de cambiar las especificaciones, se tiene que cambiar dentro del archivo /maximonet/api/database/database.go
 
 Para probar el funcionamiento de la API que se emplea, se tiene que dejar ejecutando la aplicacion y luego entrar al navegador con la dirección localhost:4051/graph .
