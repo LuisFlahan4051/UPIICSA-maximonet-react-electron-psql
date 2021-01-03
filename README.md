@@ -7,10 +7,10 @@ Punto de ventas para la sucursal MáximoNet.
 Brindar una facilidad de uso multiplataforma mediante un diseño moderno inspirado en el diseño Material con React y Electron.
 
 ## Capturas
-![alt text](prototype/FramelessV2.png)
-![alt text](prototype/FramelessV2Dark.png)
-![alt text](prototype/Login.png)
-![alt text](prototype/Responsiva.png)
+![alt text](https://github.com/LuisFlahan4051/krisstalnet/prototype/FramelessV2.png)
+![alt text](https://github.com/LuisFlahan4051/krisstalnet/prototype/FramelessV2Dark.png)
+![alt text](https://github.com/LuisFlahan4051/krisstalnet/prototype/Login.png)
+![alt text](https://github.com/LuisFlahan4051/krisstalnet/prototype/Responsiva.png)
 
 ## Tecnologías usadas 🛠️
 
