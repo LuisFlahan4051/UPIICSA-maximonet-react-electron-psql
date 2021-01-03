@@ -6,23 +6,34 @@ INSERT INTO users (name_user, lastName_user, nickname_user, mail_user, phone_use
 ('Luis Fernando', 'Melendez Bustamante', 'luisflahan', 'luisflahan4051@gmail.com', '2461506175', '4051', 'TRUE', 'TRUE', 'TRUE', '17/11/2020', 1),
 ('user1', 'last name', 'user1', '', '', '123', 'FALSE', 'FALSE','TRUE', '17/11/2020', 1),
 ('', '', 'admin', '', '','123', 'FALSE', 'TRUE', 'TRUE', '17/11/2020', 2),
-( 'Root name','Root lastname','root','root@gmail.com','246','123','TRUE','TRUE','TRUE','17/11/2020',1);
+( 'Root name',
+  'Root lastname',
+  'root',
+  'root@gmail.com',
+  '246',
+  '123',
+  'TRUE',
+  'TRUE',
+  'TRUE',
+  '17/11/2020',
+  1
+);
 
-INSERT INTO products(name_product, details_product, basePrice_product) VALUES 
-('Coca Cola 600', 'Refresco de cola de 600ml', 18.5),
-('Sabritas Adobadas', '', 20),
-('Galletas Emperador', 'Chocolate, vainilla, etc.', 17),
-('Chicle', '', 1),
-('Mini Mamut', 'Galleta grande de chocolate', 17),
-('Pulparindo', 'Dulce de tamarindo picoso', 3),
-('Refresco Sabor', 'Jarritos u otras marcas', 15),
-('Agua 600', 'Botella de agua purificada', 10),
-('Folder Carta', 'Folder de tamaño carta de cualquier color', 4),
-('Folder Oficio', 'Folder tamaño oficio de cualquier color', 5),
-('Tamborin', 'Terron de dulce con chile', 1),
-('Tutsi Pop', 'Paleta de cereza', 5),
-('Palomitas extra', 'Palomitas de microondas extra mantequilla', 17),
-('Galletas Principe', 'Galleta rellena', 17);
+INSERT INTO products(code_product ,name_product, details_product, basePrice_product) VALUES 
+('0X001','Coca Cola 600', 'Refresco de cola de 600ml', 18.5),
+('0X002','Sabritas Adobadas', '', 20),
+('0X003','Galletas Emperador', 'Chocolate, vainilla, etc.', 17),
+('0X004','Chicle', '', 1),
+('0X005','Mini Mamut', 'Galleta grande de chocolate', 17),
+('0X006','Pulparindo', 'Dulce de tamarindo picoso', 3),
+('0X007','Refresco Sabor', 'Jarritos u otras marcas', 15),
+('0X008','Agua 600', 'Botella de agua purificada', 10),
+('0X009','Folder Carta', 'Folder de tamaño carta de cualquier color', 4),
+('0X010','Folder Oficio', 'Folder tamaño oficio de cualquier color', 5),
+('0X011','Tamborin', 'Terron de dulce con chile', 1),
+('0X012','Tutsi Pop', 'Paleta de cereza', 5),
+('0X013','Palomitas extra', 'Palomitas de microondas extra mantequilla', 17),
+('0X014','Galletas Principe', 'Galleta rellena', 17);
 
 INSERT INTO articles(name_article, details_article, category_article) VALUES 
 ('Papel Carta', 'Papel bond de tamaño carta para impresora', 'Papel'),

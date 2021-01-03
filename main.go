@@ -17,8 +17,8 @@ import (
 
 var (
 	port = "4051"
-	//urlGui = "http://localhost:" + port + "/"
-	urlGui    = "http://localhost:3000/" // React Server.
+	urlGui = "http://localhost:" + port + "/"
+	//urlGui    = "http://localhost:3000/" // React Server.
 	graphDoor = "/graph"
 )
 
