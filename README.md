@@ -47,10 +47,15 @@ Una vez instaladas las dependencias, podemos compilar el proyecto de ReactJS uti
 ```
 > npm run build
 ```
-Esto nos creará una carpeta dentro de maximonet/ui llamada build. Es donde se encuentra el proyecto compilado, optimizado y minificado listo para servir con cualquier servidor.
+Esto nos creará una carpeta dentro de maximonet/ui llamada build. 
+Es donde se encuentra el proyecto compilado, optimizado y minificado listo para servir con cualquier servidor.
+
 Para servir la página y sus contenidos estáticos pudes utilizar la opción que te brinda NodeJS para crear un servidor en el momento que compilas el proyecto de react. 
 Otra opción es metiendo la carpeta dentro del servidor Apache XAMPP en /httpdocs.
-Lo que hicimos en este proyecto para poder desplegar la UI cada que se necesite fue crear un servidor mediante las librerías http del lenguaje de Golang. Este maravilloso lenguaje que incorpora ejecución concurrente mediante GoRutines permite crear más de un solo servidor y ejecutar la aplicación ElectronJS-Go al mismo tiempo y en un solo ejecutable compilado.
+
+Lo que hicimos en este proyecto para poder desplegar la UI cada que se necesite fue crear un servidor mediante las librerías http del lenguaje de Golang. 
+Este maravilloso lenguaje que incorpora ejecución concurrente mediante GoRutines permite crear más de un solo servidor y ejecutar la aplicación ElectronJS-Go al mismo tiempo y en un solo ejecutable compilado.
+
 Por lo tanto, cada que ejecutamos la aplicación se ejecuta el entorno de Electron, se alza un servidor estático para la UI y un servidor para la API de comunicación con la base de datos PostgreSQL. Esta API funciona bajo la estructura de GraphQL.
 
 Entonces, para compilar la aplicacion finalmente ingresamos las siguientes líneas a la terminal:
@@ -71,8 +76,7 @@ Nota: talvez se tenga que cambiar dentro de main.go el puerto de desarrollo 3000
 
 Para finalizar se tiene que crear la base de datos maximonet_db junto con el usuario luisflahan. Los scripts para esto se sitúan en la carpeta /maximonet/api/database.
 Para crear la base de datos y el usuario en windows se tiene que hacer mediante el administrador gráfico pgAdmin que se instala por defecto al instalar PostgreSQL:
---
---
+
 Para crear el usuario y la base de datos en linux es más sencillo ya que contamos con la herramienta psql para ejecutar scripts desde el terminal. 
 Se pueden seguir las siguientes líneas:
 Instalación de PostgreSQL en fedora 33:
@@ -144,13 +148,12 @@ query datos_usuarios{
 }
 ```
 La intgración de la base de datos con la api está en /maximonet/api/graph/schema.resolvers.go
---
---
 
 ## Autor ✒️
 **LuisFlahan4051**
 https://github.com/luisflahan4051
 
+**et. alii**
 
 ## Licencia 📄
 
