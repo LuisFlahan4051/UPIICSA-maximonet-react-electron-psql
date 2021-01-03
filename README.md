@@ -8,7 +8,7 @@ Brindar una facilidad de uso multiplataforma mediante un diseño moderno inspira
 
 ## Capturas
 ![alt text](src/namesSVG.svg)
-![alt text](https://github.com/LuisFlahan4051/krisstalnet/prototype/FramelessV2.png)
+![alt text](https://github.com/LuisFlahan4051/krisstalnet/blob/master/prototype/FramelessV2.png)
 ![alt text](https://github.com/LuisFlahan4051/krisstalnet/blob/master/prototype/Login.png)
 ![alt text](https://github.com/LuisFlahan4051/krisstalnet/blob/master/prototype/Responsiva.png)
 
