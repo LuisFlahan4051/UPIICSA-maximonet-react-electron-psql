@@ -14,11 +14,11 @@ Brindar una facilidad de uso multiplataforma mediante un diseño moderno inspira
 
 ## Tecnologías usadas 🛠️
 
-Lenguaje de programación **JavaScript y Go**
+Lenguaje de programación **TypeScript y Go**
 
-Interfaz GUI **HTML/CSS ReactJS**
+Interfaz GUI **HTML/SASS ReactJS**
 
-Base de Datos **MongoDB**
+Base de Datos **PostgreSQL**
 
 API **Go GraphQL**
 
@@ -26,10 +26,13 @@ Otros **Redux**
 
 ### Pre-requisitos de compilación 📋
 
-Git
-NodeJS
-Go
-PostgreSQL
+**Git**
+
+**NodeJS**
+
+**Go**
+
+**PostgreSQL**
 
 ### Instalación 🔧
 
@@ -76,10 +79,15 @@ Nota: talvez se tenga que cambiar dentro de main.go el puerto de desarrollo 3000
 
 Para finalizar se tiene que crear la base de datos maximonet_db junto con el usuario luisflahan. Los scripts para esto se sitúan en la carpeta /maximonet/api/database.
 
+Windows
+--
 Para crear la base de datos y el usuario en windows se tiene que hacer mediante el administrador gráfico pgAdmin que se instala por defecto al instalar PostgreSQL:
 
-AddImg
 
+
+
+Linux
+--
 Para crear el usuario y la base de datos en linux es más sencillo ya que contamos con la herramienta psql para ejecutar scripts desde el terminal. 
 
 Se pueden seguir las siguientes líneas:
@@ -131,9 +139,11 @@ Ejecutamos lo siguiente:
 
 > exit
 ```
+
 ¡Listo! Una vez finalizado ya podremos ejecutar la aplicación con un simple doble click.
 
 Notas:
+--
 El servidor de PostgreSQL se instala automaticamente en el puerto 5432.
 
 El hostname: localhost
