@@ -26,16 +26,10 @@ Otros **Redux**
 
 ### Pre-requisitos de compilación 📋
 
-**Git**
-
-**NodeJS**
-
-**Go**
-
-**PostgreSQL**
+**Git** | **NodeJS** | **Go** | **PostgreSQL**
 
 ### Instalación 🔧
-
+--
 Primero se debe clonar este repositorio, se puede descargar desde el portal de github o utilizando la git bash:
 ```
 > git clone https://github.com/LuisFlahan4051/maximonet
