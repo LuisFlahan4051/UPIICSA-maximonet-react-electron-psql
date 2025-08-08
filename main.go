@@ -16,7 +16,7 @@ import (
 )
 
 var (
-	port = "4051"
+	port   = "4051"
 	urlGui = "http://localhost:" + port + "/"
 	//urlGui    = "http://localhost:3000/" // React Server.
 	graphDoor = "/graph"
@@ -133,7 +133,7 @@ func runElectron() {
 		loger.Fatal(fmt.Errorf("main: creating window failed: %w", err))
 	}
 
-	//mainWindow.OpenDevTools()
+	mainWindow.OpenDevTools()
 	loaderWindow.Close()
 
 	app.Wait()
